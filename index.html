@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Joomiz: a Golden Path for Spring Boot services</title>
-<meta name="description" content="Joomiz is a Golden Path for Java and Kotlin Spring Boot services. Describe an application in one file, see the change first, then apply it.">
+<title>Joomiz: a Golden Path for Java and Kotlin services</title>
+<meta name="description" content="Describe a Java or Kotlin service in one file. Joomiz checks it and plans every change before it is applied. Early stage, with no production deployments yet.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.joomiz.com/">
-<meta property="og:title" content="Joomiz: a Golden Path for Spring Boot services">
-<meta property="og:description" content="Describe an application in one file. Joomiz shows the change before it runs.">
+<meta property="og:title" content="Joomiz: a Golden Path for Java and Kotlin services">
+<meta property="og:description" content="Describe a service in one file. Joomiz plans every change before it is applied.">
 <link rel="canonical" href="https://www.joomiz.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
@@ -24,7 +24,7 @@ header,main>section,footer{max-width:64rem;margin-inline:auto;padding-inline:1.2
 header{padding-block:1.25rem}
 header svg{display:block;height:2.25rem;width:auto}
 h1,h2,h3{line-height:1.15;letter-spacing:-.015em;text-wrap:balance;margin:0}
-h1{font-size:clamp(2.25rem,6vw,3.5rem)}
+h1{font-size:clamp(2.25rem,6vw,3rem)}
 h2{font-size:clamp(1.5rem,3.5vw,2rem)}
 h3{font-size:1.125rem;letter-spacing:0}
 p,ul,ol{margin:0}
@@ -49,8 +49,8 @@ section{padding-block:3rem}
 .note{margin-top:1rem;font-size:.9375rem;color:var(--muted);max-width:36rem}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 figure{margin:0;min-width:0}
-pre{margin:0;padding:1rem;background:var(--soft);border:1px solid var(--line);border-radius:.75rem;line-height:1.5;overflow-x:auto}
-pre+pre{margin-top:.5rem;white-space:pre-wrap;overflow-wrap:anywhere}
+pre{margin:0;padding:1rem;background:var(--soft);border:1px solid var(--line);border-radius:.75rem;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+pre+pre{margin-top:.5rem}
 figcaption{margin-top:.75rem;font-size:.875rem;color:var(--muted)}
 .dim{color:var(--muted)}
 .steps{display:grid;gap:1.25rem;margin-top:1.5rem;padding:0;list-style:none;counter-reset:s}
@@ -75,27 +75,37 @@ footer{padding-block:1.5rem;font-size:.875rem;color:var(--muted)}
 <main>
 <section class="hero">
 <div>
-<h1>Describe the service. Joomiz provides it.</h1>
-<p class="lead">Joomiz is a Golden Path for Java and Kotlin Spring Boot services. Developers describe what an application needs in one file. The platform team decides how it is provided. Every change is shown before it runs.</p>
+<h1>One file describes your service. Every change is planned first.</h1>
+<p class="lead">Joomiz is a Golden Path for Java and Kotlin services. Developers describe what a service needs in one file. The platform team decides how it is provided. Every change must be planned before it can be applied.</p>
 <div class="cta">
-<a class="btn" href="mailto:sales@joomiz.com">Talk to sales</a>
+<a class="btn" href="mailto:sales@joomiz.com">Email us</a>
 <span class="mail"><span>sales@joomiz.com</span><button type="button" hidden aria-label="Copy email address" title="Copy email address"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><output></output></span>
 </div>
-<p class="note">Joomiz is early and has no production deployments yet, so we start with a conversation.</p>
+<p class="note">Joomiz is early. It has no production deployments yet, and most provisioners are stubs, so we start with a conversation.</p>
 </div>
 <figure>
-<pre tabindex="0" role="region" aria-label="Excerpt of joomiz.yaml"><code><span class="dim"># joomiz.yaml</span>
-managed-resources:
-  - id: inventory-api-db
-    type: postgres
-    spec:
-      version: "16"
-      storage-gb: 20</code></pre>
+<pre tabindex="0" role="region" aria-label="Excerpt of joomiz.yaml"><code><span class="dim"># joomiz.yaml, shortened</span>
+environments:
+  test:
+    deployments:
+      - id: inventory-api-test-deployment
+        <span class="dim"># ...</span>
+        spec:
+          env:
+            DB_PASSWORD: "${{managed-resources.inventory-api-db.outputs.password}}"
+    managed-resources:
+      - id: inventory-api-db
+        type: postgres
+        spec:
+          flavor: cf-plan-small
+          version: "16"
+          storage-gb: 20
+          multi-az: false</code></pre>
 <pre tabindex="0" role="region" aria-label="Output of joomiz plan"><code><span class="dim">$ joomiz plan --environment test</span>
 inventory-api-db (created): succeeded — Would create 'inventory-api-db' (managed-resource/postgres) in environment 'test'. Nothing was changed.
 inventory-api-test-deployment (updated): succeeded — Would update 'inventory-api-test-deployment' (deployment/cloud-foundry-app) in environment 'test'. Nothing was changed. 1 spec value is not known until apply.
   env.DB_PASSWORD: (known after apply)</code></pre>
-<figcaption>A database added to a service, and the plan that Joomiz shows first. Nothing changes until you apply.</figcaption>
+<figcaption>Demo output. The demo's provisioners are stubs, so nothing real is created. Some lines are left out. The password is a reference, not a value.</figcaption>
 </figure>
 </section>
 
@@ -103,8 +113,8 @@ inventory-api-test-deployment (updated): succeeded — Would update 'inventory-a
 <h2>Three commands, in this order</h2>
 <ol class="steps">
 <li><code>joomiz validate</code> checks the file against your platform's rules and reports every problem. It changes nothing.</li>
-<li><code>joomiz plan</code> shows what would change. It changes nothing.</li>
-<li><code>joomiz apply</code> makes the change.</li>
+<li><code>joomiz plan</code> shows what would change. It changes no infrastructure.</li>
+<li><code>joomiz apply</code> makes the change. It refuses a file that was not planned for that environment.</li>
 </ol>
 </section>
 
@@ -116,14 +126,14 @@ inventory-api-test-deployment (updated): succeeded — Would update 'inventory-a
 <ul>
 <li>One file in your repository, next to your code.</li>
 <li>Check it before you push. Preview every change before you apply it.</li>
-<li>Completion and checks in VS Code.</li>
+<li>A VS Code extension gives completion and checks (local install).</li>
 </ul>
 </div>
 <div>
 <h3>Platform teams</h3>
 <ul>
 <li>Define the rules and the building blocks once.</li>
-<li>Add a building block with a catalog entry and a provisioner. A provisioner can use Terraform or any other tool.</li>
+<li>Add a building block with a catalog entry (its schema and rules, added to the control plane today) and a provisioner (a service that creates the real resource).</li>
 <li>Every change goes through the same rules.</li>
 </ul>
 </div>
@@ -131,16 +141,17 @@ inventory-api-test-deployment (updated): succeeded — Would update 'inventory-a
 <h3>Architects</h3>
 <ul>
 <li>The file states the result. The control plane owns the state.</li>
-<li>Provisioners follow a published OpenAPI contract, so you can add your own.</li>
-<li>Each building block has a closed, validated schema. Mistakes are rejected before anything runs.</li>
+<li>Provisioners follow an OpenAPI contract, so you can add your own.</li>
+<li>Each building block has a closed schema. Mistakes are rejected before anything runs.</li>
 </ul>
 </div>
 <div>
 <h3>Engineering managers</h3>
 <ul>
-<li>A new service starts from one standard path.</li>
+<li>Every service declares a Golden Path from the platform's catalog. The first ones are for Java and Kotlin web applications.</li>
 <li>Sensitive outputs are recorded in an audit trail.</li>
-<li>A team can act only on its own applications. Secret values never reach the control plane.</li>
+<li>A team can act only on its own applications. Only platform operators can act across teams.</li>
+<li>Provisioners return secrets as vault references. The control plane rejects a sensitive output that is not a reference.</li>
 </ul>
 </div>
 </div>
@@ -151,7 +162,7 @@ inventory-api-test-deployment (updated): succeeded — Would update 'inventory-a
 <h2>Talk to us</h2>
 <p class="lead">Tell us about your platform and the services your teams ship.</p>
 <div class="cta">
-<a class="btn" href="mailto:sales@joomiz.com">Email sales@joomiz.com</a>
+<a class="btn" href="mailto:sales@joomiz.com">Email us</a>
 <span class="mail"><button type="button" hidden aria-label="Copy email address" title="Copy email address"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><output></output></span>
 </div>
 </div>
