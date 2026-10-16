@@ -3,46 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Joomiz: a Golden Path for Java and Kotlin services</title>
-<meta name="description" content="Describe a Java or Kotlin service in one file. Joomiz checks it and plans every change before it is applied. Early stage, with no production deployments yet.">
+<title>Joomiz: a paved road for feature teams, built by your platform team</title>
+<meta name="description" content="A platform team builds the paved road, a golden path. Feature teams describe a Java or Kotlin service in one file. Joomiz plans every change first. Early stage.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.joomiz.com/">
-<meta property="og:title" content="Joomiz: a Golden Path for Java and Kotlin services">
-<meta property="og:description" content="Describe a service in one file. Joomiz plans every change before it is applied.">
+<meta property="og:title" content="Joomiz: a paved road for feature teams, built by your platform team">
+<meta property="og:description" content="Feature teams describe a service in one file. Joomiz plans every change before it is applied.">
 <link rel="canonical" href="https://www.joomiz.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
 /* Colours and spacing follow the Joomiz design system. Only what this page uses is copied here. */
-:root{--bg:#fff;--soft:#f4f6fa;--text:#0b1220;--muted:#5d636f;--line:#d9dce2;--ink:#0c0c31;--accent:#0b3bc4;--accent2:#112b8f;--on:#fff;--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace}
-@media(prefers-color-scheme:dark){:root{--bg:#0b1220;--soft:#1d2533;--text:#f4f6fa;--muted:#a5aab2;--line:#313846;--ink:#f4f6fa;--accent:#5c86ff;--accent2:#7fa3ff;--on:#0b1220}}
+:root{--bg:#fff;--soft:#f4f6fa;--text:#0b1220;--muted:#5d636f;--line:#d9dce2;--ink:#0c0c31;--band:var(--ink);--bandt:var(--bg);--accent:#0b3bc4;--accent2:#112b8f;--on:#fff;--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1220;--soft:#1d2533;--text:#f4f6fa;--muted:#a5aab2;--line:#313846;--ink:#f4f6fa;--band:var(--soft);--bandt:var(--text);--accent:#5c86ff;--accent2:#7fa3ff;--on:#0b1220}}
 *,::before,::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:1.0625rem/1.6 var(--sans);-webkit-text-size-adjust:100%}
-header,main>section,footer{max-width:64rem;margin-inline:auto;padding-inline:1.25rem}
-header{padding-block:1.25rem}
-header svg{display:block;height:2.25rem;width:auto}
+main>section,footer{max-width:64rem;margin-inline:auto;padding-inline:1.25rem}
+header{background:var(--soft);border-bottom:1px solid var(--line)}
+header>div{display:flex;align-items:center;gap:1rem;max-width:64rem;min-height:3.5rem;margin-inline:auto;padding:.5rem 1.25rem}
+header a:first-child{display:flex;align-items:center}
+header svg{display:block;height:1.75rem;width:auto}
+header .btn{margin-left:auto;min-height:2.25rem;padding:.25rem 1rem;font-size:.9375rem}
 h1,h2,h3{line-height:1.15;letter-spacing:-.015em;text-wrap:balance;margin:0}
-h1{font-size:clamp(2.25rem,6vw,3rem)}
+h1{font-size:clamp(2.25rem,6vw,3.25rem)}
 h2{font-size:clamp(1.5rem,3.5vw,2rem)}
 h3{font-size:1.125rem;letter-spacing:0}
 p,ul,ol{margin:0}
 a{color:var(--accent)}
 code,pre{font-family:var(--mono);font-size:.875em}
+pre{font-size:.8125rem}
 pre code{font-size:inherit}
-section{padding-block:3rem}
+section{padding-block:clamp(2.5rem,6vw,4rem)}
 .lead{max-width:36rem;margin-top:1.25rem;font-size:1.1875rem;color:var(--muted)}
-.hero{display:grid;gap:2.5rem;padding-top:1.5rem}
-@media(min-width:52rem){.hero{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:center;gap:3rem}}
+.hero{display:grid;gap:2.5rem;padding-top:2.5rem;padding-bottom:2rem}
+@media(min-width:52rem){.hero{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:start;gap:3rem}}
 .cta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;margin-top:1.75rem}
 .btn{display:inline-flex;align-items:center;min-height:2.75rem;padding:.5rem 1.25rem;border-radius:.5rem;background:var(--accent);color:var(--on);font-weight:600;text-decoration:none}
 .btn:hover{background:var(--accent2)}
-.mail{display:inline-flex;align-items:center;gap:.25rem;font-family:var(--mono);font-size:.9375rem}
-.mail button{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;padding:0;border:0;border-radius:.5rem;background:none;color:var(--muted);cursor:pointer}
-.mail button:hover{background:var(--soft);color:var(--text)}
+.mail{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.9375rem}
+.mail>span{user-select:all}
+.mail button{display:inline-flex;align-items:center;gap:.375rem;min-height:2.75rem;padding:0 .875rem;border:1px solid var(--line);border-radius:.5rem;background:none;color:var(--text);font:inherit;font-family:var(--sans);font-size:.875rem;cursor:pointer}
+.mail button:hover{border-color:var(--accent)}
 .mail button[hidden]{display:none}
-.mail svg{width:1.25rem;height:1.25rem}
+.mail svg{width:1rem;height:1rem}
 .mail .ok,.mail [data-done] .cp{display:none}
 .mail [data-done] .ok{display:block;color:var(--accent)}
 .mail output{font-family:var(--sans);font-size:.875rem;color:var(--muted)}
@@ -50,36 +55,47 @@ section{padding-block:3rem}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 figure{margin:0;min-width:0}
 pre{margin:0;padding:1rem;background:var(--soft);border:1px solid var(--line);border-radius:.75rem;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
-pre+pre{margin-top:.5rem}
 figcaption{margin-top:.75rem;font-size:.875rem;color:var(--muted)}
+.steps+figure{margin-top:2rem}
 .dim{color:var(--muted)}
 .steps{display:grid;gap:1.25rem;margin-top:1.5rem;padding:0;list-style:none;counter-reset:s}
 @media(min-width:44rem){.steps{grid-template-columns:repeat(3,1fr)}}
-.steps li{counter-increment:s;padding-top:1rem;border-top:2px solid var(--line)}
+.steps li,.who>div{padding-top:1rem;border-top:2px solid var(--line)}
+.steps li{counter-increment:s}
+.steps code{font-weight:600;color:var(--text)}
 .steps li::before{content:counter(s);display:block;margin-bottom:.25rem;font-weight:700;color:var(--accent)}
 .who{display:grid;gap:2rem 3rem;margin-top:2rem}
 @media(min-width:44rem){.who{grid-template-columns:1fr 1fr}}
-.who>div{padding-top:1rem;border-top:2px solid var(--accent)}
+.who h3{color:var(--accent)}
 .who ul{padding-left:1.1rem;margin-top:.5rem}
 .who li{margin-top:.5rem}
-.talk{background:var(--soft);max-width:none;padding:0}
-.talk>div{max-width:64rem;margin-inline:auto;padding:3.5rem 1.25rem}
+.talk{background:var(--band);color:var(--bandt);max-width:none;padding:0}
+.talk>div{max-width:64rem;margin-inline:auto;padding:4rem 1.25rem 4.5rem}
+.talk .lead{color:inherit;opacity:.85}
+.talk .btn,.talk .btn:hover{background:var(--bandt);color:var(--band)}
+.talk .btn:hover{opacity:.9}
+.talk .mail button{color:inherit;border-color:currentColor}
+.talk .mail output,.talk .mail [data-done] .ok{color:inherit}
+.talk :focus-visible{outline-color:var(--bandt)}
 footer{padding-block:1.5rem;font-size:.875rem;color:var(--muted)}
 @media print{.cta button{display:none}}
 </style>
 </head>
 <body>
 <header>
-<svg viewBox="0 0 233 380" role="img" aria-label="Joomiz"><path d="M131 198L130.8 214.2L130.2 228.5L129.1 240.8L127.8 249.4L125.8 258.6L124.8 261.9L123.1 266.4L120.6 271.6L119.2 273.9L116.8 277.1L116 278L114.3 279.3L110.8 281.7L106.8 283.8L102.6 285.4L98.1 286.8L93.4 287.8L88.5 288.5L83.4 288.9L78.2 289L73 288.8L67.6 288.4L59.5 287.2L54.2 286.1L46.2 284.1L41 282.5L34.8 280.2L15.2 299.9L0 357L5 360.4L10.6 363.8L15.5 366.2L20.8 368.6L26.7 370.9L33.3 373L38 374.2L45.7 376L54.1 377.4L60.1 378.2L66.5 378.9L76.8 379.6L88.1 380L99.4 379.9L113.6 379.2L127 377.8L133.4 376.9L145.5 374.3L151.2 372.7L156.7 370.9L162.1 368.9L167.2 366.7L172.1 364.3L176.8 361.6L181.4 358.7L185.7 355.6L189.8 352.2L193.7 348.6L197.5 344.8L201 340.7L204.3 336.3L207.5 331.6L210.5 326.7L213.2 321.6L215.8 316.1L218.2 310.4L220.4 304.4L222.5 298L224.3 291.4L226 284.5L227.5 277.3L229.9 261.9L231.6 245.3L232.7 227.3L232.9 217.8L233 82L131 184Z" style="fill:var(--ink)"/><path d="M131 101L232 0L131 0Z" style="fill:var(--accent)"/></svg>
+<div>
+<a href="/"><svg viewBox="0 0 1880 399" role="img" aria-label="Joomiz" fill-rule="evenodd" style="fill:var(--ink)"><path d="M131 207L128 258L123 275L117 286L103 294L83 298L60 296L35 289L15 309L0 366L21 378L46 385L77 389L114 388L145 383L167 376L186 365L201 350L210 336L220 313L230 271L233 227L233 91L131 193Z"/><path d="M1096 230L1097 217L1101 206L1108 196L1117 189L1129 186L1142 185L1153 188L1163 194L1172 208L1176 224L1176 389L1267 389L1267 230L1269 215L1276 200L1288 189L1305 185L1324 188L1332 193L1339 202L1347 222L1347 389L1438 389L1438 226L1434 188L1428 165L1417 142L1403 125L1385 113L1367 107L1346 104L1321 105L1303 110L1286 118L1273 130L1262 146L1254 161L1239 133L1226 120L1213 113L1184 105L1163 104L1143 107L1119 116L1099 133L1085 157L1077 185L1077 113L1005 113L1005 389L1096 389ZM476 398L509 393L541 381L565 365L587 343L601 320L611 290L614 262L612 221L605 194L590 166L572 144L550 127L524 114L494 106L460 103L432 105L401 112L374 125L351 142L331 166L318 190L310 217L307 242L309 282L316 309L328 333L344 355L362 370L388 385L412 393L440 398ZM452 323L428 315L419 308L410 297L400 271L399 237L407 210L423 191L444 181L469 179L492 187L511 206L521 232L522 266L514 293L499 311L480 321ZM817 398L850 393L882 381L906 365L928 343L942 320L952 290L955 262L953 221L946 194L931 166L914 144L891 127L865 114L835 106L802 103L773 105L742 112L715 125L692 142L672 166L659 190L651 217L648 242L650 282L657 309L669 333L685 355L703 370L729 385L753 393L781 398ZM793 323L769 315L760 308L751 297L741 271L740 237L748 210L764 191L785 181L810 179L833 187L852 206L862 232L863 266L855 293L840 311L821 321ZM1603 113L1477 113L1477 179L1512 179L1512 389L1603 389ZM1763 320L1758 313L1877 170L1877 113L1653 113L1653 182L1766 182L1771 189L1652 332L1652 389L1880 389L1880 320Z"/><path d="M1553 91L1573 87L1587 76L1596 59L1596 35L1590 19L1578 7L1559 1L1536 1L1521 7L1508 19L1502 35L1502 56L1508 72L1518 83L1533 89Z"/><path d="M131 110L232 9L131 9Z" style="fill:var(--accent)"/></svg></a>
+<a class="btn" href="mailto:sales@joomiz.com">Email us</a>
+</div>
 </header>
 <main>
 <section class="hero">
 <div>
-<h1>One file describes your service. Every change is planned first.</h1>
-<p class="lead">Joomiz is a Golden Path for Java and Kotlin services. Developers describe what a service needs in one file. The platform team decides how it is provided. Every change must be planned before it can be applied.</p>
+<h1>Your platform team builds the road. Every change is planned first.</h1>
+<p class="lead">Joomiz lets a platform team build a paved road, also called a golden path, for its feature teams. The road is made of building blocks, their rules, and the services that provide them. Feature teams describe what a service needs in one file. Every change must be planned before it can be applied.</p>
 <div class="cta">
 <a class="btn" href="mailto:sales@joomiz.com">Email us</a>
-<span class="mail"><span>sales@joomiz.com</span><button type="button" hidden aria-label="Copy email address" title="Copy email address"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><output></output></span>
+<span class="mail"><span>sales@joomiz.com</span><button type="button" hidden aria-label="Copy email address" title="Copy email address"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Copy</button><output></output></span>
 </div>
 <p class="note">Joomiz is early. It has no production deployments yet, and most provisioners are stubs, so we start with a conversation.</p>
 </div>
@@ -91,6 +107,7 @@ environments:
       - id: inventory-api-test-deployment
         <span class="dim"># ...</span>
         spec:
+          <span class="dim"># ...</span>
           env:
             DB_PASSWORD: "${{managed-resources.inventory-api-db.outputs.password}}"
     managed-resources:
@@ -101,11 +118,7 @@ environments:
           version: "16"
           storage-gb: 20
           multi-az: false</code></pre>
-<pre tabindex="0" role="region" aria-label="Output of joomiz plan"><code><span class="dim">$ joomiz plan --environment test</span>
-inventory-api-db (created): succeeded — Would create 'inventory-api-db' (managed-resource/postgres) in environment 'test'. Nothing was changed.
-inventory-api-test-deployment (updated): succeeded — Would update 'inventory-api-test-deployment' (deployment/cloud-foundry-app) in environment 'test'. Nothing was changed. 1 spec value is not known until apply.
-  env.DB_PASSWORD: (known after apply)</code></pre>
-<figcaption>Demo output. The demo's provisioners are stubs, so nothing real is created. Some lines are left out. The password is a reference, not a value.</figcaption>
+<figcaption>A PostgreSQL database declared next to the service that uses it. Joomiz must plan every change before it can apply it.</figcaption>
 </figure>
 </section>
 
@@ -116,6 +129,13 @@ inventory-api-test-deployment (updated): succeeded — Would update 'inventory-a
 <li><code>joomiz plan</code> shows what would change. It changes no infrastructure.</li>
 <li><code>joomiz apply</code> makes the change. It refuses a file that was not planned for that environment.</li>
 </ol>
+<figure>
+<pre tabindex="0" role="region" aria-label="Output of joomiz plan"><code><span class="dim">$ joomiz plan --environment test</span>
+inventory-api-db (created): succeeded — Would create 'inventory-api-db' (managed-resource/postgres) in environment 'test'. Nothing was changed.
+inventory-api-test-deployment (updated): succeeded — Would update 'inventory-api-test-deployment' (deployment/cloud-foundry-app) in environment 'test'. Nothing was changed. 1 spec value is not known until apply.
+  env.DB_PASSWORD: (known after apply)</code></pre>
+<figcaption>Demo output. The demo's provisioners are stubs, so nothing real is created. Some lines are left out. The password is a reference, not a value.</figcaption>
+</figure>
 </section>
 
 <section>
@@ -148,7 +168,7 @@ inventory-api-test-deployment (updated): succeeded — Would update 'inventory-a
 <div>
 <h3>Engineering managers</h3>
 <ul>
-<li>Every service declares a Golden Path from the platform's catalog. The first ones are for Java and Kotlin web applications.</li>
+<li>Every service declares a Golden Path: a named choice from the platform's catalog. Today there are two, for Java and Kotlin web applications.</li>
 <li>Sensitive outputs are recorded in an audit trail.</li>
 <li>A team can act only on its own applications. Only platform operators can act across teams.</li>
 <li>Provisioners return secrets as vault references. The control plane rejects a sensitive output that is not a reference.</li>
@@ -163,7 +183,7 @@ inventory-api-test-deployment (updated): succeeded — Would update 'inventory-a
 <p class="lead">Tell us about your platform and the services your teams ship.</p>
 <div class="cta">
 <a class="btn" href="mailto:sales@joomiz.com">Email us</a>
-<span class="mail"><button type="button" hidden aria-label="Copy email address" title="Copy email address"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><output></output></span>
+<span class="mail"><span>sales@joomiz.com</span><button type="button" hidden aria-label="Copy email address" title="Copy email address"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Copy</button><output></output></span>
 </div>
 </div>
 </section>
