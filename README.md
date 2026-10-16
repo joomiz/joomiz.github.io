@@ -28,4 +28,4 @@ Open `index.html` in a browser. There is nothing to build.
 ## Other files
 
 - `favicon.svg` is the favicon that the page links.
-- `favicon.ico` is for old browsers, which ask for it by default.
+- `favicon.ico` is for old browsers, which ask for it by default. It is made from `favicon.svg`, so the two match: four sizes (16, 32, 48 and 64 px) with transparent corners, 2.4 KB. Make it again from the SVG whenever the SVG changes.
