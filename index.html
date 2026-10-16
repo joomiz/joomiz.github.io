@@ -35,9 +35,9 @@ a{color:var(--accent)}
 code,pre{font-family:var(--mono);font-size:.875em}
 pre{font-size:.8125rem}
 pre code{font-size:inherit}
-section{padding-block:clamp(2.5rem,6vw,4rem)}
+section{padding-block:clamp(1.75rem,4vw,2.5rem)}
 .lead{max-width:36rem;margin-top:1.25rem;font-size:1.1875rem;color:var(--muted)}
-.hero{display:grid;gap:2.5rem;padding-top:2.5rem;padding-bottom:2rem}
+.hero{display:grid;gap:2.5rem;padding-top:2.5rem}
 @media(min-width:52rem){.hero{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:start;gap:3rem}}
 .cta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;margin-top:1.75rem}
 .btn{display:inline-flex;align-items:center;min-height:2.75rem;padding:.5rem 1.25rem;border-radius:.5rem;background:var(--accent);color:var(--on);font-weight:600;text-decoration:none}
@@ -69,7 +69,7 @@ figcaption{margin-top:.75rem;font-size:.875rem;color:var(--muted)}
 .who h3{color:var(--accent)}
 .who ul{padding-left:1.1rem;margin-top:.5rem}
 .who li{margin-top:.5rem}
-.talk{background:var(--band);color:var(--bandt);max-width:none;padding:0}
+.talk{background:var(--band);color:var(--bandt);max-width:none;margin-top:clamp(1.75rem,4vw,2.5rem);padding:0}
 .talk>div{max-width:64rem;margin-inline:auto;padding:4rem 1.25rem 4.5rem}
 .talk .lead{color:inherit;opacity:.85}
 .talk .btn,.talk .btn:hover{background:var(--bandt);color:var(--band)}
