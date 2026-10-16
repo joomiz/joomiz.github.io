@@ -29,4 +29,3 @@ Open `index.html` in a browser. There is nothing to build.
 
 - `favicon.svg` is the favicon that the page links.
 - `favicon.ico` is for old browsers, which ask for it by default.
-- `hello-world.png` is a leftover from the first page. Nothing uses it.
