@@ -1,26 +1,173 @@
 <!doctype html>
-
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Joomiz</title>
-  <meta name="description" content="Joomiz">
-  <meta name="author" content="Joomiz">
-
-  <meta property="og:title" content="Joomiz">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.joomiz.com/">
-  <meta property="og:description" content="Joomiz">
-  <meta property="og:image" content="https://www.joomiz.com/hello-world.png">
-
-  <link rel="shortcut icon" href="favicon.ico">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Joomiz: a Golden Path for Spring Boot services</title>
+<meta name="description" content="Joomiz is a Golden Path for Java and Kotlin Spring Boot services. Describe an application in one file, see the change first, then apply it.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.joomiz.com/">
+<meta property="og:title" content="Joomiz: a Golden Path for Spring Boot services">
+<meta property="og:description" content="Describe an application in one file. Joomiz shows the change before it runs.">
+<link rel="canonical" href="https://www.joomiz.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+/* Colours and spacing follow the Joomiz design system. Only what this page uses is copied here. */
+:root{--bg:#fff;--soft:#f4f6fa;--text:#0b1220;--muted:#5d636f;--line:#d9dce2;--ink:#0c0c31;--accent:#0b3bc4;--accent2:#112b8f;--on:#fff;--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1220;--soft:#1d2533;--text:#f4f6fa;--muted:#a5aab2;--line:#313846;--ink:#f4f6fa;--accent:#5c86ff;--accent2:#7fa3ff;--on:#0b1220}}
+*,::before,::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:1.0625rem/1.6 var(--sans);-webkit-text-size-adjust:100%}
+header,main>section,footer{max-width:64rem;margin-inline:auto;padding-inline:1.25rem}
+header{padding-block:1.25rem}
+header svg{display:block;height:2.25rem;width:auto}
+h1,h2,h3{line-height:1.15;letter-spacing:-.015em;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.25rem,6vw,3.5rem)}
+h2{font-size:clamp(1.5rem,3.5vw,2rem)}
+h3{font-size:1.125rem;letter-spacing:0}
+p,ul,ol{margin:0}
+a{color:var(--accent)}
+code,pre{font-family:var(--mono);font-size:.875em}
+pre code{font-size:inherit}
+section{padding-block:3rem}
+.lead{max-width:36rem;margin-top:1.25rem;font-size:1.1875rem;color:var(--muted)}
+.hero{display:grid;gap:2.5rem;padding-top:1.5rem}
+@media(min-width:52rem){.hero{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:center;gap:3rem}}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;margin-top:1.75rem}
+.btn{display:inline-flex;align-items:center;min-height:2.75rem;padding:.5rem 1.25rem;border-radius:.5rem;background:var(--accent);color:var(--on);font-weight:600;text-decoration:none}
+.btn:hover{background:var(--accent2)}
+.mail{display:inline-flex;align-items:center;gap:.25rem;font-family:var(--mono);font-size:.9375rem}
+.mail button{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;padding:0;border:0;border-radius:.5rem;background:none;color:var(--muted);cursor:pointer}
+.mail button:hover{background:var(--soft);color:var(--text)}
+.mail button[hidden]{display:none}
+.mail svg{width:1.25rem;height:1.25rem}
+.mail .ok,.mail [data-done] .cp{display:none}
+.mail [data-done] .ok{display:block;color:var(--accent)}
+.mail output{font-family:var(--sans);font-size:.875rem;color:var(--muted)}
+.note{margin-top:1rem;font-size:.9375rem;color:var(--muted);max-width:36rem}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+figure{margin:0;min-width:0}
+pre{margin:0;padding:1rem;background:var(--soft);border:1px solid var(--line);border-radius:.75rem;line-height:1.5;overflow-x:auto}
+pre+pre{margin-top:.5rem;white-space:pre-wrap;overflow-wrap:anywhere}
+figcaption{margin-top:.75rem;font-size:.875rem;color:var(--muted)}
+.dim{color:var(--muted)}
+.steps{display:grid;gap:1.25rem;margin-top:1.5rem;padding:0;list-style:none;counter-reset:s}
+@media(min-width:44rem){.steps{grid-template-columns:repeat(3,1fr)}}
+.steps li{counter-increment:s;padding-top:1rem;border-top:2px solid var(--line)}
+.steps li::before{content:counter(s);display:block;margin-bottom:.25rem;font-weight:700;color:var(--accent)}
+.who{display:grid;gap:2rem 3rem;margin-top:2rem}
+@media(min-width:44rem){.who{grid-template-columns:1fr 1fr}}
+.who>div{padding-top:1rem;border-top:2px solid var(--accent)}
+.who ul{padding-left:1.1rem;margin-top:.5rem}
+.who li{margin-top:.5rem}
+.talk{background:var(--soft);max-width:none;padding:0}
+.talk>div{max-width:64rem;margin-inline:auto;padding:3.5rem 1.25rem}
+footer{padding-block:1.5rem;font-size:.875rem;color:var(--muted)}
+@media print{.cta button{display:none}}
+</style>
 </head>
-
 <body>
-  <h1>Joomiz</h1>
-  <p>Hello world!</p>
+<header>
+<svg viewBox="0 0 233 380" role="img" aria-label="Joomiz"><path d="M131 198L130.8 214.2L130.2 228.5L129.1 240.8L127.8 249.4L125.8 258.6L124.8 261.9L123.1 266.4L120.6 271.6L119.2 273.9L116.8 277.1L116 278L114.3 279.3L110.8 281.7L106.8 283.8L102.6 285.4L98.1 286.8L93.4 287.8L88.5 288.5L83.4 288.9L78.2 289L73 288.8L67.6 288.4L59.5 287.2L54.2 286.1L46.2 284.1L41 282.5L34.8 280.2L15.2 299.9L0 357L5 360.4L10.6 363.8L15.5 366.2L20.8 368.6L26.7 370.9L33.3 373L38 374.2L45.7 376L54.1 377.4L60.1 378.2L66.5 378.9L76.8 379.6L88.1 380L99.4 379.9L113.6 379.2L127 377.8L133.4 376.9L145.5 374.3L151.2 372.7L156.7 370.9L162.1 368.9L167.2 366.7L172.1 364.3L176.8 361.6L181.4 358.7L185.7 355.6L189.8 352.2L193.7 348.6L197.5 344.8L201 340.7L204.3 336.3L207.5 331.6L210.5 326.7L213.2 321.6L215.8 316.1L218.2 310.4L220.4 304.4L222.5 298L224.3 291.4L226 284.5L227.5 277.3L229.9 261.9L231.6 245.3L232.7 227.3L232.9 217.8L233 82L131 184Z" style="fill:var(--ink)"/><path d="M131 101L232 0L131 0Z" style="fill:var(--accent)"/></svg>
+</header>
+<main>
+<section class="hero">
+<div>
+<h1>Describe the service. Joomiz provides it.</h1>
+<p class="lead">Joomiz is a Golden Path for Java and Kotlin Spring Boot services. Developers describe what an application needs in one file. The platform team decides how it is provided. Every change is shown before it runs.</p>
+<div class="cta">
+<a class="btn" href="mailto:sales@joomiz.com">Talk to sales</a>
+<span class="mail"><span>sales@joomiz.com</span><button type="button" hidden aria-label="Copy email address" title="Copy email address"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><output></output></span>
+</div>
+<p class="note">Joomiz is early and has no production deployments yet, so we start with a conversation.</p>
+</div>
+<figure>
+<pre tabindex="0" role="region" aria-label="Excerpt of joomiz.yaml"><code><span class="dim"># joomiz.yaml</span>
+managed-resources:
+  - id: inventory-api-db
+    type: postgres
+    spec:
+      version: "16"
+      storage-gb: 20</code></pre>
+<pre tabindex="0" role="region" aria-label="Output of joomiz plan"><code><span class="dim">$ joomiz plan --environment test</span>
+inventory-api-db (created): succeeded — Would create 'inventory-api-db' (managed-resource/postgres) in environment 'test'. Nothing was changed.
+inventory-api-test-deployment (updated): succeeded — Would update 'inventory-api-test-deployment' (deployment/cloud-foundry-app) in environment 'test'. Nothing was changed. 1 spec value is not known until apply.
+  env.DB_PASSWORD: (known after apply)</code></pre>
+<figcaption>A database added to a service, and the plan that Joomiz shows first. Nothing changes until you apply.</figcaption>
+</figure>
+</section>
+
+<section>
+<h2>Three commands, in this order</h2>
+<ol class="steps">
+<li><code>joomiz validate</code> checks the file against your platform's rules and reports every problem. It changes nothing.</li>
+<li><code>joomiz plan</code> shows what would change. It changes nothing.</li>
+<li><code>joomiz apply</code> makes the change.</li>
+</ol>
+</section>
+
+<section>
+<h2>What changes for each team</h2>
+<div class="who">
+<div>
+<h3>Developers</h3>
+<ul>
+<li>One file in your repository, next to your code.</li>
+<li>Check it before you push. Preview every change before you apply it.</li>
+<li>Completion and checks in VS Code.</li>
+</ul>
+</div>
+<div>
+<h3>Platform teams</h3>
+<ul>
+<li>Define the rules and the building blocks once.</li>
+<li>Add a building block with a catalog entry and a provisioner. A provisioner can use Terraform or any other tool.</li>
+<li>Every change goes through the same rules.</li>
+</ul>
+</div>
+<div>
+<h3>Architects</h3>
+<ul>
+<li>The file states the result. The control plane owns the state.</li>
+<li>Provisioners follow a published OpenAPI contract, so you can add your own.</li>
+<li>Each building block has a closed, validated schema. Mistakes are rejected before anything runs.</li>
+</ul>
+</div>
+<div>
+<h3>Engineering managers</h3>
+<ul>
+<li>A new service starts from one standard path.</li>
+<li>Sensitive outputs are recorded in an audit trail.</li>
+<li>A team can act only on its own applications. Secret values never reach the control plane.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="talk">
+<div>
+<h2>Talk to us</h2>
+<p class="lead">Tell us about your platform and the services your teams ship.</p>
+<div class="cta">
+<a class="btn" href="mailto:sales@joomiz.com">Email sales@joomiz.com</a>
+<span class="mail"><button type="button" hidden aria-label="Copy email address" title="Copy email address"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button><output></output></span>
+</div>
+</div>
+</section>
+</main>
+<footer>© 2026 Joomiz</footer>
+<script>
+var T="sales@joomiz.com";
+document.querySelectorAll(".mail button").forEach(function(b){
+var s=b.nextElementSibling;b.hidden=false;
+b.onclick=function(){
+function ok(){b.dataset.done=1;s.textContent="Copied";setTimeout(function(){delete b.dataset.done;s.textContent=""},2e3)}
+function no(){s.textContent="Copy failed. Select the address and copy it."}
+function old(){try{var a=document.createElement("textarea");a.value=T;a.style.cssText="position:fixed;opacity:0";document.body.append(a);a.select();a.setSelectionRange(0,99);var r=document.execCommand("copy");a.remove();r?ok():no()}catch(e){no()}}
+if(navigator.clipboard&&isSecureContext)navigator.clipboard.writeText(T).then(ok,old);else old()
+}})
+</script>
 </body>
 </html>
