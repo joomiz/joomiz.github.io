@@ -39,7 +39,23 @@ After a merge, compare the live page with the file. The two must be the same, ex
 curl -s -H 'Accept-Encoding: identity' https://www.joomiz.com/ | grep -c -E 'cdn-cgi|email-protection'   # must be 0
 ```
 
+## The image for shared links
+
+When someone shares the link on WhatsApp, LinkedIn, X or another service, it fetches `og-image.png` (1200 × 630 px) and shows it with the title. The page names it in its `<meta property="og:image">` tags, with the full address, because those services do not accept a relative one. `twitter:card` is `summary_large_image`, and X takes the rest from the `og:` tags. The page itself never loads the image, so it does not count against the rules above.
+
+The source is `_src/og-image.html`. A folder that starts with an underscore is not published. To make the PNG again, after a change to the source or to the wordmark in `_src/`:
+
+```sh
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --hide-scrollbars \
+  --force-device-scale-factor=1 --window-size=1200,630 --screenshot=og-image.png "file://$PWD/_src/og-image.html"
+```
+
+Keep the file under 300 KB, because WhatsApp ignores a larger image. A service keeps what it fetched, so after a change use its own tool to fetch it again (the Facebook Sharing Debugger and the LinkedIn Post Inspector do that). WhatsApp has no such tool, and it forgets after a while.
+
 ## Other files
 
 - `favicon.svg` is the favicon that the page links.
 - `favicon.ico` is for old browsers, which ask for it by default. It is made from `favicon.svg`, so the two match: four sizes (16, 32, 48 and 64 px) with transparent corners, 2.4 KB. Make it again from the SVG whenever the SVG changes.
+- `og-image.png` is the image for shared links. See above.
+- `_src/` holds the source of that image. It is not published.
+- `design-system/` is **built output**, published from the `platform` repository by a workflow (`.github/workflows/publish-site.yml` there), and a bot commits it here. Do not edit it by hand: the next publish replaces it.
