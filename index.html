@@ -102,6 +102,10 @@ footer{padding-block:1.5rem;font-size:.875rem;color:var(--muted)}
 </div>
 <figure>
 <pre tabindex="0" role="region" aria-label="Excerpt of joomiz.yaml"><code><span class="dim"># joomiz.yaml, shortened</span>
+application:
+  name: inventory-api
+  <span class="dim"># ...</span>
+  golden-path: java-web-application
 environments:
   test:
     deployments:
@@ -119,7 +123,7 @@ environments:
           version: "16"
           storage-gb: 20
           multi-az: false</code></pre>
-<figcaption>A PostgreSQL database declared next to the service that uses it. Joomiz must plan every change before it can apply it.</figcaption>
+<figcaption>The service names its golden path, and declares a PostgreSQL database next to the code that uses it. Joomiz must plan every change before it can apply it.</figcaption>
 </figure>
 </section>
 
