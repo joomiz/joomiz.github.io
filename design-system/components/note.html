@@ -1,0 +1,32 @@
+ <!doctype html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <title>Note · Components · Joomiz design system</title> <meta name="description" content="A short message that stands out from the text around it, in one of four tones. It takes a body, which you write between the component tags."> <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"> <link rel="stylesheet" href="../css/88d6fe9e98.css"> <script src="../js/be04bb28db.js" defer></script> </head> <body data-layout="sidebar" data-header="none"> <a href="#main">Skip to content</a> <nav id="menu" popover aria-label="Section"> <div data-variant="menu"> <h2>Components</h2> <ul> <li><a href="index.html">Overview</a></li> <li><a href="brand.html">Brand</a></li> <li><a href="cell.html">Cell</a></li> <li><a href="code-block.html">Code block</a></li> <li><a href="data-table.html">Data table</a></li> <li><a href="facts.html">Facts</a></li> <li><a href="menu.html">Menu</a></li> <li><a href="nav.html">Nav</a></li> <li><a href="note.html" aria-current="page">Note</a></li> <li><a href="page-head.html">Page head</a></li> </ul> </div> </nav> <main id="main"> <button type="button" data-variant="ghost" data-size="sm" popovertarget="menu" aria-label="Open the menu">Menu</button> <hgroup> <h1>Note</h1> <p>A short message that stands out from the text around it, in one of four tones. It takes a body, which you write between the component tags.</p> </hgroup> <h2 id="examples">Examples</h2> <h3>Info</h3> <p class="a">Rendered</p> <div class="b"> <aside data-variant="info"> <p><strong>Info.</strong> Drift detection is off for this environment.</p> </aside> </div> <p class="a">Usage</p> <pre><code>{% component &#34;note.html&#34;, variant: &#34;info&#34; %}
+  &lt;p&gt;&lt;strong&gt;Info.&lt;/strong&gt; Drift detection is off for this environment.&lt;/p&gt;
+{% endcomponent %}
+</code></pre> <details> <summary>The HTML that the component writes</summary> <pre><code>&lt;aside data-variant=&#34;info&#34;&gt;
+  &lt;p&gt;&lt;strong&gt;Info.&lt;/strong&gt; Drift detection is off for this environment.&lt;/p&gt;
+&lt;/aside&gt;
+</code></pre> </details> <h3>Success</h3> <p class="a">Rendered</p> <div class="b"> <aside data-variant="success"> <p><strong>Success.</strong> The plan was applied. All three resources are ready.</p> </aside> </div> <p class="a">Usage</p> <pre><code>{% component &#34;note.html&#34;, variant: &#34;success&#34; %}
+  &lt;p&gt;&lt;strong&gt;Success.&lt;/strong&gt; The plan was applied. All three resources are ready.&lt;/p&gt;
+{% endcomponent %}
+</code></pre> <details> <summary>The HTML that the component writes</summary> <pre><code>&lt;aside data-variant=&#34;success&#34;&gt;
+  &lt;p&gt;&lt;strong&gt;Success.&lt;/strong&gt; The plan was applied. All three resources are ready.&lt;/p&gt;
+&lt;/aside&gt;
+</code></pre> </details> <h3>Warning</h3> <p class="a">Rendered</p> <div class="b"> <aside data-variant="warning"> <p><strong>Warning.</strong> This plan removes a database. Check the change list.</p> </aside> </div> <p class="a">Usage</p> <pre><code>{% component &#34;note.html&#34;, variant: &#34;warning&#34; %}
+  &lt;p&gt;&lt;strong&gt;Warning.&lt;/strong&gt; This plan removes a database. Check the change list.&lt;/p&gt;
+{% endcomponent %}
+</code></pre> <details> <summary>The HTML that the component writes</summary> <pre><code>&lt;aside data-variant=&#34;warning&#34;&gt;
+  &lt;p&gt;&lt;strong&gt;Warning.&lt;/strong&gt; This plan removes a database. Check the change list.&lt;/p&gt;
+&lt;/aside&gt;
+</code></pre> </details> <h3>Danger</h3> <p class="a">Rendered</p> <div class="b"> <aside data-variant="danger"> <p><strong>Error.</strong> The provisioner did not answer.</p> </aside> </div> <p class="a">Usage</p> <pre><code>{% component &#34;note.html&#34;, variant: &#34;danger&#34; %}
+  &lt;p&gt;&lt;strong&gt;Error.&lt;/strong&gt; The provisioner did not answer.&lt;/p&gt;
+{% endcomponent %}
+</code></pre> <details> <summary>The HTML that the component writes</summary> <pre><code>&lt;aside data-variant=&#34;danger&#34;&gt;
+  &lt;p&gt;&lt;strong&gt;Error.&lt;/strong&gt; The provisioner did not answer.&lt;/p&gt;
+&lt;/aside&gt;
+</code></pre> </details> <h2 id="inputs">Inputs</h2> <div role="region" tabindex="0" aria-labelledby="inputs-note-caption"> <table> <caption id="inputs-note-caption">Inputs of the note component</caption> <thead> <tr> <th scope="col">Input</th> <th scope="col">Type</th> <th scope="col">Required</th> <th scope="col">Default</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <th scope="row"><code>variant</code></th> <td>string</td> <td>Yes</td> <td>None</td> <td>The tone of the note. Each note should start with a word that says the tone, because a colour alone is not enough.<br><small>One of: &#34;info&#34;, &#34;success&#34;, &#34;warning&#34;, &#34;danger&#34;</small></td> </tr> <tr> <th scope="row"><code>children</code></th> <td>html</td> <td>Yes</td> <td>None</td> <td>The body of the note. Write it between the component and endcomponent tags. It is trusted markup, so escape any text that a reader typed.</td> </tr> </tbody> </table> </div> <h2 id="source">Source</h2> <p>The template is <code>src/components/note.html</code>.</p> <pre><code>{% comment %}
+  A note, with a body that arrives as `children`.
+  The inputs, with a description and examples, are in note.json. The components pages show them.
+{% endcomment %}
+&lt;aside data-variant=&#34;{{ variant }}&#34;&gt;
+  {{ children | raw }}
+&lt;/aside&gt;
+</code></pre> </main> </body> </html> 

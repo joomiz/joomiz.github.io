@@ -1,0 +1,28 @@
+ <!doctype html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <title>Code block · Components · Joomiz design system</title> <meta name="description" content="Lines of code or command output, in a preformatted block. Every line is escaped, so text such as &lt;b&gt; shows as text."> <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"> <link rel="stylesheet" href="../css/88d6fe9e98.css"> <script src="../js/be04bb28db.js" defer></script> </head> <body data-layout="sidebar" data-header="none"> <a href="#main">Skip to content</a> <nav id="menu" popover aria-label="Section"> <div data-variant="menu"> <h2>Components</h2> <ul> <li><a href="index.html">Overview</a></li> <li><a href="brand.html">Brand</a></li> <li><a href="cell.html">Cell</a></li> <li><a href="code-block.html" aria-current="page">Code block</a></li> <li><a href="data-table.html">Data table</a></li> <li><a href="facts.html">Facts</a></li> <li><a href="menu.html">Menu</a></li> <li><a href="nav.html">Nav</a></li> <li><a href="note.html">Note</a></li> <li><a href="page-head.html">Page head</a></li> </ul> </div> </nav> <main id="main"> <button type="button" data-variant="ghost" data-size="sm" popovertarget="menu" aria-label="Open the menu">Menu</button> <hgroup> <h1>Code block</h1> <p>Lines of code or command output, in a preformatted block. Every line is escaped, so text such as &lt;b&gt; shows as text.</p> </hgroup> <h2 id="examples">Examples</h2> <h3>The output of a plan</h3> <p class="a">Rendered</p> <div class="b"> <pre><code>$ joomiz plan
+Plan for inventory-api in environment test
+  + managed-resource/postgres  inventory-api-db  (create)
+  ~ deployment/jar             inventory-api     (update)
+Nothing is written. Run joomiz apply to make these changes.
+</code></pre> </div> <p class="a">Usage</p> <pre><code>{% render &#34;code-block.html&#34;, lines: lines %}
+</code></pre> <p class="a">The data that the usage names</p> <pre><code>{
+  &#34;lines&#34;: [
+    &#34;$ joomiz plan&#34;,
+    &#34;Plan for inventory-api in environment test&#34;,
+    &#34;  + managed-resource/postgres  inventory-api-db  (create)&#34;,
+    &#34;  ~ deployment/jar             inventory-api     (update)&#34;,
+    &#34;Nothing is written. Run joomiz apply to make these changes.&#34;
+  ]
+}
+</code></pre> <details> <summary>The HTML that the component writes</summary> <pre><code>&lt;pre&gt;&lt;code&gt;$ joomiz plan
+Plan for inventory-api in environment test
+  + managed-resource/postgres  inventory-api-db  (create)
+  ~ deployment/jar             inventory-api     (update)
+Nothing is written. Run joomiz apply to make these changes.
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre> </details> <h2 id="inputs">Inputs</h2> <div role="region" tabindex="0" aria-labelledby="inputs-code-block-caption"> <table> <caption id="inputs-code-block-caption">Inputs of the code block component</caption> <thead> <tr> <th scope="col">Input</th> <th scope="col">Type</th> <th scope="col">Required</th> <th scope="col">Default</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <th scope="row"><code>lines</code></th> <td>list of strings</td> <td>Yes</td> <td>None</td> <td>The lines to show, in order. Each string is one line.</td> </tr> </tbody> </table> </div> <h2 id="source">Source</h2> <p>The template is <code>src/components/code-block.html</code>.</p> <pre><code>{% comment %}
+  Lines of code or output, as &lt;pre&gt;&lt;code&gt;. Every line is escaped.
+  The inputs, with a description and examples, are in code-block.json. The components pages show them.
+{% endcomment %}
+&lt;pre&gt;&lt;code&gt;{% for line in lines %}{{ line }}
+{% endfor %}&lt;/code&gt;&lt;/pre&gt;
+</code></pre> </main> </body> </html> 

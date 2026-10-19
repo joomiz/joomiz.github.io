@@ -1,0 +1,72 @@
+ <!doctype html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <title>Nav · Components · Joomiz design system</title> <meta name="description" content="A list of links in a navigation landmark, such as the main navigation in a header. The link of the current page is marked. An item can have children, which show in a list under it when the pointer is over it or focus is in it."> <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"> <link rel="stylesheet" href="../css/88d6fe9e98.css"> <script src="../js/be04bb28db.js" defer></script> </head> <body data-layout="sidebar" data-header="none"> <a href="#main">Skip to content</a> <nav id="menu" popover aria-label="Section"> <div data-variant="menu"> <h2>Components</h2> <ul> <li><a href="index.html">Overview</a></li> <li><a href="brand.html">Brand</a></li> <li><a href="cell.html">Cell</a></li> <li><a href="code-block.html">Code block</a></li> <li><a href="data-table.html">Data table</a></li> <li><a href="facts.html">Facts</a></li> <li><a href="menu.html">Menu</a></li> <li><a href="nav.html" aria-current="page">Nav</a></li> <li><a href="note.html">Note</a></li> <li><a href="page-head.html">Page head</a></li> </ul> </div> </nav> <main id="main"> <button type="button" data-variant="ghost" data-size="sm" popovertarget="menu" aria-label="Open the menu">Menu</button> <hgroup> <h1>Nav</h1> <p>A list of links in a navigation landmark, such as the main navigation in a header. The link of the current page is marked. An item can have children, which show in a list under it when the pointer is over it or focus is in it.</p> </hgroup> <h2 id="examples">Examples</h2> <h3>A main navigation</h3> <p class="a">Rendered</p> <div class="b"> <nav aria-label="Example navigation" data-variant="bar"> <ul> <li><a href="#" aria-current="page">Applications</a></li> <li><a href="#">Provisioners</a></li> <li><a href="#">Catalog</a></li> </ul> </nav> </div> <p class="a">Usage</p> <pre><code>{% render &#34;nav.html&#34;,
+     label: &#34;Example navigation&#34;,
+     items: items,
+     current: &#34;applications&#34; %}
+</code></pre> <p class="a">The data that the usage names</p> <pre><code>{
+  &#34;items&#34;: [
+    { &#34;key&#34;: &#34;applications&#34;, &#34;label&#34;: &#34;Applications&#34;, &#34;href&#34;: &#34;#&#34; },
+    { &#34;key&#34;: &#34;provisioners&#34;, &#34;label&#34;: &#34;Provisioners&#34;, &#34;href&#34;: &#34;#&#34; },
+    { &#34;key&#34;: &#34;catalog&#34;, &#34;label&#34;: &#34;Catalog&#34;, &#34;href&#34;: &#34;#&#34; }
+  ]
+}
+</code></pre> <details> <summary>The HTML that the component writes</summary> <pre><code>&lt;nav aria-label=&#34;Example navigation&#34; data-variant=&#34;bar&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#&#34; aria-current=&#34;page&#34;&gt;Applications&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Provisioners&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Catalog&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre> </details> <h3>An item with children</h3> <p class="a">Rendered</p> <div class="b"> <nav aria-label="Example navigation with children" data-variant="bar"> <ul> <li><a href="#">Applications</a></li> <li data-submenu> <button type="button" aria-expanded="false">Settings <svg data-icon="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button> <ul> <li><a href="#" aria-current="page">Teams</a></li> <li><a href="#">Access tokens</a></li> <li><a href="#">Audit trail</a></li> </ul> </li> </ul> </nav> </div> <p class="a">Usage</p> <pre><code>{% render &#34;nav.html&#34;,
+     label: &#34;Example navigation with children&#34;,
+     items: items,
+     current: &#34;teams&#34; %}
+</code></pre> <p class="a">The data that the usage names</p> <pre><code>{
+  &#34;items&#34;: [
+    { &#34;key&#34;: &#34;applications&#34;, &#34;label&#34;: &#34;Applications&#34;, &#34;href&#34;: &#34;#&#34; },
+    {
+      &#34;key&#34;: &#34;settings&#34;,
+      &#34;label&#34;: &#34;Settings&#34;,
+      &#34;children&#34;: [
+        { &#34;key&#34;: &#34;teams&#34;, &#34;label&#34;: &#34;Teams&#34;, &#34;href&#34;: &#34;#&#34; },
+        { &#34;key&#34;: &#34;tokens&#34;, &#34;label&#34;: &#34;Access tokens&#34;, &#34;href&#34;: &#34;#&#34; },
+        { &#34;key&#34;: &#34;audit&#34;, &#34;label&#34;: &#34;Audit trail&#34;, &#34;href&#34;: &#34;#&#34; }
+      ]
+    }
+  ]
+}
+</code></pre> <details> <summary>The HTML that the component writes</summary> <pre><code>&lt;nav aria-label=&#34;Example navigation with children&#34; data-variant=&#34;bar&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Applications&lt;/a&gt;&lt;/li&gt;
+    &lt;li data-submenu&gt;
+      &lt;button type=&#34;button&#34; aria-expanded=&#34;false&#34;&gt;Settings &lt;svg data-icon=&#34;chevron-down&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m6 9 6 6 6-6&#34; /&gt;&lt;/svg&gt;&lt;/button&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#&#34; aria-current=&#34;page&#34;&gt;Teams&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Access tokens&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Audit trail&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre> </details> <h2 id="inputs">Inputs</h2> <div role="region" tabindex="0" aria-labelledby="inputs-nav-caption"> <table> <caption id="inputs-nav-caption">Inputs of the nav component</caption> <thead> <tr> <th scope="col">Input</th> <th scope="col">Type</th> <th scope="col">Required</th> <th scope="col">Default</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <th scope="row"><code>label</code></th> <td>string</td> <td>Yes</td> <td>None</td> <td>The accessible name of the navigation. A page with more than one navigation needs a different name for each.</td> </tr> <tr> <th scope="row"><code>items</code></th> <td>list of objects</td> <td>Yes</td> <td>None</td> <td>The links, in order.</td> </tr> <tr> <th scope="row"><code>current</code></th> <td>string</td> <td>No</td> <td>None</td> <td>The key of the current page. The link with this key is marked with aria-current.</td> </tr> </tbody> </table> </div> <div role="region" tabindex="0" aria-labelledby="fields-nav-items-caption"> <table> <caption id="fields-nav-items-caption">Fields of &#34;items&#34;</caption> <thead> <tr> <th scope="col">Field</th> <th scope="col">Type</th> <th scope="col">Required</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <th scope="row"><code>key</code></th> <td>string</td> <td>Yes</td> <td>A name for the link. It is compared with the input &#34;current&#34;.</td> </tr> <tr> <th scope="row"><code>label</code></th> <td>string</td> <td>Yes</td> <td>The text of the link, or of the button that opens the children.</td> </tr> <tr> <th scope="row"><code>href</code></th> <td>string</td> <td>No</td> <td>Where the link goes. An item with children has no href: it is a button.</td> </tr> <tr> <th scope="row"><code>children</code></th> <td>list of objects</td> <td>No</td> <td>The links that show under this item. Each child has the three fields below, and cannot have children of its own.</td> </tr> <tr> <th scope="row"><code>children.key</code></th> <td>string</td> <td>Yes</td> <td>A name for the child link. It is compared with the input &#34;current&#34;.</td> </tr> <tr> <th scope="row"><code>children.label</code></th> <td>string</td> <td>Yes</td> <td>The text of the child link.</td> </tr> <tr> <th scope="row"><code>children.href</code></th> <td>string</td> <td>Yes</td> <td>Where the child link goes.</td> </tr> </tbody> </table> </div> <h2 id="source">Source</h2> <p>The template is <code>src/components/nav.html</code>.</p> <pre><code>{% comment %}
+  A list of links in a &lt;nav&gt;. An item can have children, which show in a list under it.
+  The inputs, with a description and examples, are in nav.json. The components pages show them.
+{% endcomment %}
+&lt;nav aria-label=&#34;{{ label }}&#34; data-variant=&#34;bar&#34;&gt;
+  &lt;ul&gt;
+    {%- for item in items %}
+    {%- if item.children %}
+    &lt;li data-submenu&gt;
+      &lt;button type=&#34;button&#34; aria-expanded=&#34;false&#34;&gt;{{ item.label }} {% icon &#34;chevron-down&#34; %}&lt;/button&gt;
+      &lt;ul&gt;
+        {%- for child in item.children %}
+        &lt;li&gt;&lt;a href=&#34;{{ child.href }}&#34;{% if child.key == current %} aria-current=&#34;page&#34;{% endif %}&gt;{{ child.label }}&lt;/a&gt;&lt;/li&gt;
+        {%- endfor %}
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    {%- else %}
+    &lt;li&gt;&lt;a href=&#34;{{ item.href }}&#34;{% if item.key == current %} aria-current=&#34;page&#34;{% endif %}&gt;{{ item.label }}&lt;/a&gt;&lt;/li&gt;
+    {%- endif %}
+    {%- endfor %}
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre> </main> </body> </html> 
