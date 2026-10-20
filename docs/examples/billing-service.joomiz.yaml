@@ -1,0 +1,135 @@
+version: 1
+
+application:
+  id: 3f8b2c1d-9a4e-4d7f-8b1a-2c3d4e5f6a7b
+  name: billing-service
+  description: Generates invoices and reconciles payment provider webhooks.
+  repository: https://github.com/joomiz-demo/billing-service
+  golden-path: java-web-application
+
+  owner:
+    id: finance-team
+    name: Finance Team
+
+  metadata:
+    configuration-item: CI-00456
+
+artifacts:
+  - id: billing-service-jar
+    type: jar
+    spec:
+      path: target/billing-service.jar
+
+tooling:
+  - id: renovate
+    type: renovate
+    enabled: true
+    spec:
+      schedule: before 6am on monday
+
+  - id: checkmarx
+    type: checkmarx
+    enabled: true
+    spec:
+      scan-on: pull-request
+      severity-threshold: high
+
+environments:
+  test:
+    targets:
+      - id: test-foundation
+        type: cloud-foundry-space
+        spec:
+          api-endpoint: https://api.cf.test.internal
+          org: joomiz-demo
+          space: billing-service-test
+
+    deployments:
+      - id: billing-service-test-deployment
+        type: cloud-foundry-app
+        artifact: billing-service-jar
+        target: test-foundation
+        spec:
+          instances: 1
+          memory: 512M
+          disk-quota: 1G
+          buildpack: java_buildpack
+          env:
+            # A reference, never a value. The postgres provisioner writes the real password into
+            # billing-service-vault below and reports back the URI naming it; that URI is what resolves
+            # here and what the application fetches at startup. Nothing in this file, in the control
+            # plane's database, or in a plan output ever holds the password itself.
+            DB_PASSWORD: "${{managed-resources.billing-service-db.outputs.password}}"
+
+    managed-resources:
+      - id: billing-service-vault
+        type: azure-key-vault
+        spec:
+          resource-group: billing-service-test-rg
+          location: westeurope
+          # Only HSM-backed tiers are accepted — the catalog schema enumerates them.
+          sku: premium
+
+      - id: billing-service-db
+        type: postgres
+        spec:
+          flavor: cf-plan-small
+          version: "16"
+          storage-gb: 20
+          multi-az: false
+
+    consumed-resources:
+      - id: shared-logging-index
+        type: splunk-index
+        spec:
+          app: billing-observability
+          index: billing_test
+
+  prod:
+    targets:
+      - id: prod-foundation
+        type: cloud-foundry-space
+        spec:
+          api-endpoint: https://api.cf.prod.internal
+          org: joomiz-demo
+          space: billing-service-prod
+
+    deployments:
+      - id: billing-service-prod-deployment
+        type: cloud-foundry-app
+        artifact: billing-service-jar
+        target: prod-foundation
+        spec:
+          instances: 4
+          memory: 2G
+          disk-quota: 4G
+          buildpack: java_buildpack
+          env:
+            # The same reference as `test`, resolving against `prod`'s own resources. An expression can
+            # only ever name a resource of the environment it is written in — that boundary is enforced
+            # by the grammar rather than by a check, so these two lines being identical text is not the
+            # two environments sharing anything.
+            DB_PASSWORD: "${{managed-resources.billing-service-db.outputs.password}}"
+
+    managed-resources:
+      - id: billing-service-vault
+        type: azure-key-vault
+        spec:
+          resource-group: billing-service-prod-rg
+          location: westeurope
+          sku: premium
+
+      - id: billing-service-db
+        type: postgres
+        spec:
+          flavor: cf-plan-large-ha
+          version: "16"
+          storage-gb: 200
+          multi-az: true
+
+    consumed-resources:
+      - id: shared-logging-index
+        type: splunk-index
+        spec:
+          app: billing-observability
+          index: billing_prod

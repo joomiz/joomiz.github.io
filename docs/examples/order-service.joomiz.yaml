@@ -1,0 +1,103 @@
+version: 1
+
+application:
+  id: 7c1a1e2a-4b3d-4f0a-9c2e-5f6a7b8c9d0e
+  name: order-service
+  description: Handles order creation, payment status, and fulfillment events.
+  repository: https://github.com/joomiz-demo/order-service
+  golden-path: java-web-application
+
+  owner:
+    id: commerce-team
+    name: Commerce Team
+
+  metadata:
+    configuration-item: CI-00123
+
+artifacts:
+  - id: order-service-image
+    type: container-image
+    spec:
+      dockerfile: Dockerfile
+      registry: ghcr.io/joomiz-demo/order-service
+
+tooling:
+  - id: renovate
+    type: renovate
+    enabled: true
+    spec:
+      schedule: before 6am on monday
+
+  - id: checkmarx
+    type: checkmarx
+    enabled: true
+    spec:
+      scan-on: pull-request
+      severity-threshold: high
+
+environments:
+  test:
+    targets:
+      - id: test-cluster
+        type: kubernetes-namespace
+        spec:
+          cluster: eu-west-1-test
+          namespace: order-service-test
+
+    deployments:
+      - id: order-service-test-deployment
+        type: kubernetes-deployment
+        artifact: order-service-image
+        target: test-cluster
+        spec:
+          replicas: 1
+          cpu: 250m
+          memory: 512Mi
+
+    managed-resources:
+      - id: order-service-db
+        type: postgres
+        spec:
+          flavor: db.t3.micro
+          version: "16"
+          storage-gb: 20
+          multi-az: false
+
+    consumed-resources:
+      - id: shared-event-bus
+        type: kafka-topic
+        spec:
+          topic: orders.test.events
+
+  prod:
+    targets:
+      - id: prod-cluster
+        type: kubernetes-namespace
+        spec:
+          cluster: eu-west-1-prod
+          namespace: order-service-prod
+
+    deployments:
+      - id: order-service-prod-deployment
+        type: kubernetes-deployment
+        artifact: order-service-image
+        target: prod-cluster
+        spec:
+          replicas: 3
+          cpu: "1"
+          memory: 2Gi
+
+    managed-resources:
+      - id: order-service-db
+        type: postgres
+        spec:
+          flavor: db.r6g.xlarge
+          version: "16"
+          storage-gb: 200
+          multi-az: true
+
+    consumed-resources:
+      - id: shared-event-bus
+        type: kafka-topic
+        spec:
+          topic: orders.prod.events
