@@ -1,0 +1,74 @@
+ <!doctype html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <title>Live table · Components · Joomiz design system</title> <meta name="description" content="A table that a script fills. It looks and scrolls like the data table, but its body is empty and one row is in a template. The script clones the template for each record, so the markup of a cell comes from the build and only text comes from the script."> <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"> <link rel="stylesheet" href="../css/40a40b8e13.css"> <script src="../js/5e02298580.js" defer></script> </head> <body data-layout="sidebar"> <a href="#main">Skip to content</a> <header> <button type="button" data-variant="ghost" data-size="sm" popovertarget="menu" aria-label="Open the menu">Menu</button> <a href="../" data-variant="brand" aria-label="Joomiz Design system, home"> <img data-on="light" src="../assets/brand/wordmark-full.on-light.svg" alt="" width="120" height="32"> <img data-on="dark" src="../assets/brand/wordmark-full.on-dark.svg" alt="" width="120" height="32"> <span>Design system</span> </a> <nav aria-label="Main" data-variant="bar"> <ul> <li><a href="../tokens">Tokens</a></li> <li><a href="../elements">Elements</a></li> <li><a href="../components/" aria-current="page">Components</a></li> <li><a href="../layouts/">Layouts</a></li> </ul> </nav> <button type="button" id="theme-toggle" data-variant="ghost" data-icon-only data-align="end" aria-label="Theme: system. Switch to light."> <span data-for="system"><svg data-icon="sun-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v2"/><path d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"/><path d="M16 12a4 4 0 0 0-4-4"/><path d="m19 5-1.256 1.256"/><path d="M20 12h2"/></svg></span> <span data-for="light" hidden><svg data-icon="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span> <span data-for="dark" hidden><svg data-icon="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg></span> </button> </header> <nav id="menu" popover aria-label="Section"> <div data-variant="menu"> <h2>Components</h2> <ul> <li><a href="./">Overview</a></li> <li><a href="brand">Brand</a></li> <li><a href="cell">Cell</a></li> <li><a href="code-block">Code block</a></li> <li><a href="confirm-dialog">Confirm dialog</a></li> <li><a href="data-table">Data table</a></li> <li><a href="error-summary">Error summary</a></li> <li><a href="facts">Facts</a></li> <li><a href="filter-bar">Filter bar</a></li> <li><a href="form-field">Form field</a></li> <li><a href="list-pager">List pager</a></li> <li><a href="live-table" aria-current="page">Live table</a></li> <li><a href="menu">Menu</a></li> <li><a href="nav">Nav</a></li> <li><a href="note">Note</a></li> <li><a href="page-head">Page head</a></li> <li><a href="pager">Pager</a></li> <li><a href="state-panel">State panel</a></li> <li><a href="status-badge">Status badge</a></li> <li><a href="theme-toggle">Theme toggle</a></li> </ul> </div> </nav> <main id="main"> <hgroup> <h1>Live table</h1> <p>A table that a script fills. It looks and scrolls like the data table, but its body is empty and one row is in a template. The script clones the template for each record, so the markup of a cell comes from the build and only text comes from the script.</p> </hgroup> <h2 id="examples">Examples</h2> <h3>A table that a script fills</h3> <p class="a">Rendered</p> <div class="e"> <div role="region" tabindex="0" aria-labelledby="runs-caption"> <table> <caption id="runs-caption">Runs</caption> <thead> <tr> <th scope="col">Run</th> <th scope="col">Application</th> <th scope="col">Status</th> <th scope="col">Started</th> </tr> </thead> <tbody data-live></tbody> <template data-row> <tr> <th scope="row" data-column="0"><code></code></th> <td data-column="1"><strong></strong></td> <td data-column="2"> <span data-variant="badge" data-tone="neutral"></span> </td> <td data-column="3"><time datetime=""></time></td> </tr> </template> </table> </div> </div> <p class="a">Usage</p> <pre><code>{% render &#34;live-table.html&#34;, id: &#34;runs&#34;, caption: &#34;Runs&#34;, columns: columns, row: row %}
+</code></pre> <p class="a">The data that the usage names</p> <pre><code>{
+  &#34;columns&#34;: [&#34;Run&#34;, &#34;Application&#34;, &#34;Status&#34;, &#34;Started&#34;],
+  &#34;row&#34;: [
+    { &#34;text&#34;: &#34;&#34;, &#34;kind&#34;: &#34;code&#34; },
+    { &#34;text&#34;: &#34;&#34;, &#34;kind&#34;: &#34;strong&#34; },
+    { &#34;text&#34;: &#34;&#34;, &#34;kind&#34;: &#34;badge&#34; },
+    { &#34;text&#34;: &#34;&#34;, &#34;kind&#34;: &#34;time&#34;, &#34;datetime&#34;: &#34;&#34; }
+  ]
+}
+</code></pre> <details> <summary>The HTML that the component writes</summary> <pre><code>&lt;div role=&#34;region&#34; tabindex=&#34;0&#34; aria-labelledby=&#34;runs-caption&#34;&gt;
+  &lt;table&gt;
+    &lt;caption id=&#34;runs-caption&#34;&gt;Runs&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope=&#34;col&#34;&gt;Run&lt;/th&gt;
+        &lt;th scope=&#34;col&#34;&gt;Application&lt;/th&gt;
+        &lt;th scope=&#34;col&#34;&gt;Status&lt;/th&gt;
+        &lt;th scope=&#34;col&#34;&gt;Started&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody data-live&gt;&lt;/tbody&gt;
+    &lt;template data-row&gt;
+      &lt;tr&gt;
+        &lt;th scope=&#34;row&#34; data-column=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/th&gt;
+        &lt;td data-column=&#34;1&#34;&gt;&lt;strong&gt;&lt;/strong&gt;&lt;/td&gt;
+        &lt;td data-column=&#34;2&#34;&gt;
+&lt;span data-variant=&#34;badge&#34; data-tone=&#34;neutral&#34;&gt;&lt;/span&gt;
+&lt;/td&gt;
+        &lt;td data-column=&#34;3&#34;&gt;&lt;time datetime=&#34;&#34;&gt;&lt;/time&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/template&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre> </details> <h2 id="inputs">Inputs</h2> <div role="region" tabindex="0" aria-labelledby="inputs-live-table-caption"> <table> <caption id="inputs-live-table-caption">Inputs of the live table component</caption> <thead> <tr> <th scope="col">Input</th> <th scope="col">Type</th> <th scope="col">Required</th> <th scope="col">Default</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <th scope="row"><code>id</code></th> <td>string</td> <td>Yes</td> <td>None</td> <td>An id that is unique on the page. The id of the caption comes from it, and the table is named by the caption.</td> </tr> <tr> <th scope="row"><code>caption</code></th> <td>string</td> <td>Yes</td> <td>None</td> <td>The visible name of the table.</td> </tr> <tr> <th scope="row"><code>columns</code></th> <td>list of strings</td> <td>Yes</td> <td>None</td> <td>The names of the columns, in order.</td> </tr> <tr> <th scope="row"><code>row</code></th> <td>list of objects</td> <td>Yes</td> <td>None</td> <td>The shape of one row: a list of cells, one for each column. The kind of a cell says what the script puts in it. Give each cell an empty text: the script sets the real one. A list with no cell stops the build.</td> </tr> <tr> <th scope="row"><code>row_header</code></th> <td>number</td> <td>No</td> <td><code>0</code></td> <td>The position of the cell that names the row, counting from 0. The first cell is the default.</td> </tr> </tbody> </table> </div> <div role="region" tabindex="0" aria-labelledby="fields-live-table-row-caption"> <table> <caption id="fields-live-table-row-caption">Fields of &#34;row&#34;</caption> <thead> <tr> <th scope="col">Field</th> <th scope="col">Type</th> <th scope="col">Required</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <th scope="row"><code>kind</code></th> <td>string</td> <td>No</td> <td>What the cell holds: the element that the script fills. See the cell component. A cell without a kind holds plain text.<br><small>One of: &#34;code&#34;, &#34;strong&#34;, &#34;link&#34;, &#34;time&#34;, &#34;badge&#34;</small></td> </tr> <tr> <th scope="row"><code>text</code></th> <td>string</td> <td>Yes</td> <td>The text that the template holds. Give an empty text: the script sets the real one. The cell component needs the field, so it cannot be left out.</td> </tr> <tr> <th scope="row"><code>href</code></th> <td>string</td> <td>No</td> <td>Not used. The script sets the address of a link. Leave it empty.</td> </tr> <tr> <th scope="row"><code>datetime</code></th> <td>string</td> <td>No</td> <td>Not used. The script sets the date of a time element. Leave it empty.</td> </tr> <tr> <th scope="row"><code>tone</code></th> <td>string</td> <td>No</td> <td>The tone that a badge has before the script sets one, for the kind &#34;badge&#34;.<br><small>One of: &#34;neutral&#34;, &#34;info&#34;, &#34;success&#34;, &#34;warning&#34;, &#34;danger&#34;</small></td> </tr> </tbody> </table> </div> <h2 id="source">Source</h2> <p>The template is <code>src/components/live-table.html</code>.</p> <pre><code>{% comment %}
+  A table that a script fills. It is a data table with an empty tbody and one &lt;template&gt; row.
+  The inputs, with a description and examples, are in live-table.json. The components pages show them.
+
+  A script finds the body with [data-live], clones the &lt;template data-row&gt; for each record, and sets the text of the element in
+  each cell with textContent. data-column holds the position of a cell. The `row` input gives the shape of the row: the kind of
+  each cell says what the cell holds, and its text stays empty. The wrapper, the caption and the head are those of data-table.
+  The scroll region and the sticky row header are styled by element in css/elements.css, so a live table needs no style of its own.
+{% endcomment %}
+{%- if row_header %}{% assign header_at = row_header %}{% else %}{% assign header_at = 0 %}{% endif %}
+{%- comment %}
+  A row with no cell would give a template that a script cannot fill. Reading its first cell stops the build when there is none,
+  and the message (&#34;undefined variable: row.first&#34;) names the input. The capture throws the value away.
+{% endcomment %}
+{%- capture first_cell %}{{ row.first }}{% endcapture %}
+&lt;div role=&#34;region&#34; tabindex=&#34;0&#34; aria-labelledby=&#34;{{ id }}-caption&#34;&gt;
+  &lt;table&gt;
+    &lt;caption id=&#34;{{ id }}-caption&#34;&gt;{{ caption }}&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        {%- for column in columns %}
+        &lt;th scope=&#34;col&#34;&gt;{{ column }}&lt;/th&gt;
+        {%- endfor %}
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody data-live&gt;&lt;/tbody&gt;
+    &lt;template data-row&gt;
+      &lt;tr&gt;
+        {%- for cell in row %}
+        {%- if forloop.index0 == header_at %}
+        &lt;th scope=&#34;row&#34; data-column=&#34;{{ forloop.index0 }}&#34;&gt;{% render &#34;cell.html&#34;, cell: cell %}&lt;/th&gt;
+        {%- else %}
+        &lt;td data-column=&#34;{{ forloop.index0 }}&#34;&gt;{% render &#34;cell.html&#34;, cell: cell %}&lt;/td&gt;
+        {%- endif %}
+        {%- endfor %}
+      &lt;/tr&gt;
+    &lt;/template&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre> </main> </body> </html> 
