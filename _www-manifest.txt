@@ -1,10 +1,14 @@
 assets/brand/favicon.svg
 assets/brand/wordmark-full.on-dark.svg
 assets/brand/wordmark-full.on-light.svg
-css/8af7bff668.css
+css/30249a5a17.css
+css/7075bab292.css
 faq.html
 index.html
+js/74504e0e4b.js
+js/da7facdead.js
 og-image.png
+try.html
 use-cases/audit.html
 use-cases/database.html
 use-cases/index.html
