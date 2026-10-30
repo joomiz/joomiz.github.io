@@ -1,0 +1,67 @@
+version: 1
+
+application:
+  id: ca14d630-ee83-4a36-a810-35c92864f51a
+  name: container-shop
+  description: A small shop service that runs as a container image on Kubernetes.
+  repository: https://github.com/example/container-shop
+  golden-path: java-web-application
+
+  owner:
+    id: finance-team
+    name: Finance Team
+
+artifacts:
+  - id: shop-image
+    type: container-image
+    spec:
+      dockerfile: Dockerfile
+      registry: registry.example.com/finance/container-shop
+
+tooling:
+  - id: renovate
+    type: renovate
+    enabled: true
+    spec:
+      schedule: before 6am on monday
+
+  - id: checkmarx
+    type: checkmarx
+    enabled: true
+    spec:
+      scan-on: pull-request
+      severity-threshold: high
+
+environments:
+  test:
+    targets:
+      - id: test-cluster
+        type: kubernetes-namespace
+        spec:
+          cluster: eu-west-1-test
+          namespace: container-shop-test
+
+    deployments:
+      - id: shop-test-deployment
+        type: kubernetes-deployment
+        artifact: shop-image
+        target: test-cluster
+        spec:
+          replicas: 1
+          cpu: 250m
+          memory: 512Mi
+
+    managed-resources:
+      - id: shop-vault
+        type: azure-key-vault
+        spec:
+          resource-group: container-shop-test-rg
+          location: westeurope
+          sku: premium
+
+    consumed-resources:
+      - id: shop-logs
+        type: splunk-index
+        spec:
+          app: shop-observability
+          index: shop_test

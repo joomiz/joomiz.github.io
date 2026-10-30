@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 560" width="1240" height="560" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="t">The things in Joomiz and how they relate</title>
+  <desc id="d">An owner owns an application. The application is submitted as revisions, declares artifacts and tooling once, and has environments. An environment has resources, and each resource has a type. The catalog defines types, and a provisioner handles them. A revision is planned as a plan, and the plan is then applied. A plan and an apply are saved as runs. An apply writes the applied state.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M2 1.5 L8 5 L2 8.5" fill="none" stroke="#0B3BC4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="560" rx="24" fill="#F4F6FA"/>
+
+  <!-- arrows -->
+  <g fill="none" stroke="#0B3BC4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M240 72 H390" marker-end="url(#arrow)"/>
+    <path d="M590 72 H740" marker-end="url(#arrow)"/>
+    <path d="M490 104 V170" marker-end="url(#arrow)"/>
+    <path d="M410 104 V137 H140 V170" marker-end="url(#arrow)"/>
+    <path d="M490 234 V300" marker-end="url(#arrow)"/>
+    <path d="M390 316 H240" marker-end="url(#arrow)"/>
+    <path d="M140 430 V364" marker-end="url(#arrow)"/>
+    <path d="M390 462 H300 V348 H240" marker-end="url(#arrow)"/>
+    <path d="M840 104 V170" marker-end="url(#arrow)"/>
+    <path d="M840 234 V300" marker-end="url(#arrow)"/>
+    <path d="M840 364 V430" marker-end="url(#arrow)"/>
+    <path d="M940 202 H1100 V235" marker-end="url(#arrow)"/>
+    <path d="M940 332 H1100 V299" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- arrow labels -->
+  <g font-size="13" fill="#5B6475">
+    <text x="315" y="62" text-anchor="middle">owns</text>
+    <text x="665" y="62" text-anchor="middle">is submitted as</text>
+    <text x="500" y="141">has</text>
+    <text x="275" y="128" text-anchor="middle">declares</text>
+    <text x="500" y="271">has</text>
+    <text x="315" y="306" text-anchor="middle">has a</text>
+    <text x="150" y="403">defines</text>
+    <text x="308" y="420">handles</text>
+    <text x="850" y="141">is planned as</text>
+    <text x="850" y="271">is applied as</text>
+    <text x="850" y="401">writes</text>
+    <text x="1020" y="194" text-anchor="middle">is saved as</text>
+    <text x="1020" y="352" text-anchor="middle">is saved as</text>
+  </g>
+
+  <!-- boxes -->
+  <g fill="#FFFFFF" stroke="#0B3BC4" stroke-width="2">
+    <rect x="40" y="40" width="200" height="64" rx="12"/>
+    <rect x="40" y="170" width="200" height="64" rx="12"/>
+    <rect x="40" y="300" width="200" height="64" rx="12"/>
+    <rect x="40" y="430" width="200" height="64" rx="12"/>
+    <rect x="390" y="40" width="200" height="64" rx="12"/>
+    <rect x="390" y="170" width="200" height="64" rx="12"/>
+    <rect x="390" y="300" width="200" height="64" rx="12"/>
+    <rect x="390" y="430" width="200" height="64" rx="12"/>
+    <rect x="740" y="40" width="200" height="64" rx="12"/>
+    <rect x="740" y="170" width="200" height="64" rx="12"/>
+    <rect x="740" y="300" width="200" height="64" rx="12"/>
+    <rect x="740" y="430" width="200" height="64" rx="12"/>
+    <rect x="1000" y="235" width="200" height="64" rx="12"/>
+  </g>
+
+  <g font-size="17" font-weight="700" fill="#0C0C31">
+    <text x="58" y="68">Owner</text>
+    <text x="58" y="198">Artifacts, tooling</text>
+    <text x="58" y="328">Type</text>
+    <text x="58" y="458">Catalog</text>
+    <text x="408" y="68">Application</text>
+    <text x="408" y="198">Environment</text>
+    <text x="408" y="328">Resource</text>
+    <text x="408" y="458">Provisioner</text>
+    <text x="758" y="68">Revision</text>
+    <text x="758" y="198">Plan</text>
+    <text x="758" y="328">Apply</text>
+    <text x="758" y="458">Applied state</text>
+    <text x="1018" y="263">Run</text>
+  </g>
+
+  <g font-size="13" fill="#5B6475">
+    <text x="58" y="88">the team in owner</text>
+    <text x="58" y="218">declared once per file</text>
+    <text x="58" y="348">a name from the catalog</text>
+    <text x="58" y="478">the types a platform offers</text>
+    <text x="408" y="88">the service you deploy</text>
+    <text x="408" y="218">for example test, prod</text>
+    <text x="408" y="348">named by a resource ID</text>
+    <text x="408" y="478">handles a category and type</text>
+    <text x="758" y="88">one exact file, by hash</text>
+    <text x="758" y="218">shows the changes</text>
+    <text x="758" y="348">makes the changes</text>
+    <text x="758" y="478">what exists now</text>
+    <text x="1018" y="283">record of a plan or apply</text>
+  </g>
+</svg>

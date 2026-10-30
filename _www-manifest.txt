@@ -1,0 +1,14 @@
+assets/brand/favicon.svg
+assets/brand/wordmark-full.on-dark.svg
+assets/brand/wordmark-full.on-light.svg
+css/8af7bff668.css
+faq.html
+index.html
+og-image.png
+use-cases/audit.html
+use-cases/database.html
+use-cases/index.html
+use-cases/kong.html
+use-cases/new-service.html
+use-cases/provisioner.html
+use-cases/secrets.html

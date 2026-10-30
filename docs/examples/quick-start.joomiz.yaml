@@ -1,0 +1,42 @@
+version: 1
+
+application:
+  id: f86f491d-2073-42d1-8166-17ab5d0eb093
+  name: quick-start-shop
+  description: A small shop service for the quick start.
+  repository: https://github.com/example/quick-start-shop
+  golden-path: java-web-application
+
+  owner:
+    id: finance-team
+    name: Finance Team
+
+# What your build produces.
+artifacts:
+  - id: shop-jar
+    type: jar
+    spec:
+      path: target/shop.jar
+
+environments:
+  test:
+    # Where the service runs.
+    targets:
+      - id: test-foundation
+        type: cloud-foundry-space
+        spec:
+          api-endpoint: https://api.cf.test.internal
+          org: example-org
+          space: quick-start-shop-test
+
+    # What runs there: the jar, on that target.
+    deployments:
+      - id: shop-test-deployment
+        type: cloud-foundry-app
+        artifact: shop-jar
+        target: test-foundation
+        spec:
+          instances: 1
+          memory: 1G
+          disk-quota: 1G
+          buildpack: java_buildpack

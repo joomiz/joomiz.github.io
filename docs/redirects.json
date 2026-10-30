@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "from": "anatomy",
+      "to": "feature-teams/the-joomiz-yaml-file"
+    },
+    {
+      "from": "application",
+      "to": "feature-teams/application"
+    },
+    {
+      "from": "concepts",
+      "to": "learn/how-joomiz-works"
+    },
+    {
+      "from": "environments",
+      "to": "feature-teams/environments"
+    },
+    {
+      "from": "reference-expressions",
+      "to": "feature-teams/references"
+    }
+  ]
+}

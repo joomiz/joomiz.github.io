@@ -1,0 +1,93 @@
+version: 1
+
+application:
+  id: e5b4b52a-37f9-4773-af65-02cabe4e2448
+  name: reference-shop
+  description: A small shop service whose settings read values from other parts of its own file.
+  repository: https://github.com/example/reference-shop
+  golden-path: java-web-application
+
+  owner:
+    id: finance-team
+    name: Finance Team
+
+  metadata:
+    configuration-item: CI-00456
+
+artifacts:
+  - id: shop-jar
+    type: jar
+    spec:
+      path: target/shop.jar
+
+tooling:
+  - id: renovate
+    type: renovate
+    enabled: true
+    spec:
+      schedule: before 6am on monday
+
+environments:
+  test:
+    targets:
+      - id: test-foundation
+        type: cloud-foundry-space
+        spec:
+          api-endpoint: https://api.cf.test.internal
+          org: example-org
+          space: reference-shop-test
+
+    deployments:
+      - id: shop-test-deployment
+        type: cloud-foundry-app
+        artifact: shop-jar
+        target: test-foundation
+        spec:
+          instances: 1
+          memory: 1G
+          disk-quota: 1G
+          buildpack: java_buildpack
+          env:
+            # Facts that the file declares once.
+            SERVICE_NAME: "${{application.name}}"
+            OWNER_NAME: "${{application.owner.name}}"
+            CONFIGURATION_ITEM: "${{application.metadata.configuration-item}}"
+            JAR_PATH: "${{artifacts.shop-jar.spec.path}}"
+            UPDATE_SCHEDULE: "${{tooling.renovate.spec.schedule}}"
+            # Values of the resources of this environment.
+            CF_SPACE: "${{targets.test-foundation.spec.space}}"
+            DB_VERSION: "${{managed-resources.shop-db.spec.version}}"
+            EVENTS_TOPIC: "${{consumed-resources.shop-events.spec.topic}}"
+            # A value that a provisioner reports after it creates a resource.
+            DB_PASSWORD: "${{managed-resources.shop-db.outputs.password}}"
+            SPACE_GUID: "${{targets.test-foundation.outputs.space-guid}}"
+            # Text and a reference in one value.
+            CONNECTION_NOTE: "database ${{managed-resources.shop-db.spec.version}} in ${{targets.test-foundation.spec.space}}"
+
+      - id: shop-test-worker
+        type: cloud-foundry-app
+        artifact: shop-jar
+        target: test-foundation
+        spec:
+          instances: 1
+          memory: 512M
+          disk-quota: 1G
+          buildpack: java_buildpack
+          env:
+            # A setting of another deployment.
+            WEB_MEMORY: "${{deployments.shop-test-deployment.spec.memory}}"
+
+    managed-resources:
+      - id: shop-db
+        type: postgres
+        spec:
+          flavor: cf-plan-small
+          version: "16"
+          storage-gb: 20
+          multi-az: false
+
+    consumed-resources:
+      - id: shop-events
+        type: kafka-topic
+        spec:
+          topic: shop.test.events

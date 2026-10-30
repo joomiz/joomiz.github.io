@@ -1,0 +1,180 @@
+ <!doctype html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <title>Deploy your first service · Docs · Joomiz</title> <meta name="description" content="Deploy a small Java service with the Joomiz CLI: create the file, register the application, check, preview and apply a change, then add a database."> <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"> <link rel="stylesheet" href="../css/d73eb349a2.css"> <script src="../js/5e02298580.js" defer></script> </head> <body data-layout="sidebar"> <a href="#main">Skip to content</a> <header> <button type="button" data-variant="ghost" data-size="sm" popovertarget="menu" aria-label="Open the menu">Menu</button> <a href="../" data-variant="brand" aria-label="Joomiz Docs, home"> <img data-on="light" src="../assets/brand/wordmark-full.on-light.svg" alt="" width="120" height="32"> <img data-on="dark" src="../assets/brand/wordmark-full.on-dark.svg" alt="" width="120" height="32"> <span>Docs</span> </a> <span data-variant="badge" data-tone="info">BETA</span> <nav aria-label="Main" data-variant="bar"> <ul> <li><a href="https://www.joomiz.com/">Home</a></li> <li><a href="https://www.joomiz.com/use-cases/">Use cases</a></li> <li><a href="https://www.joomiz.com/faq">FAQ</a></li> <li><a href="../" aria-current="page">Docs</a></li> </ul> </nav> <button type="button" id="theme-toggle" data-variant="ghost" data-icon-only data-align="end" aria-label="Theme: system. Switch to light."> <span data-for="system"><svg data-icon="sun-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v2"/><path d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"/><path d="M16 12a4 4 0 0 0-4-4"/><path d="m19 5-1.256 1.256"/><path d="M20 12h2"/></svg></span> <span data-for="light" hidden><svg data-icon="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span> <span data-for="dark" hidden><svg data-icon="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg></span> </button> </header> <nav id="menu" popover aria-label="Section"> <div data-variant="menu"> <h2>Start</h2> <ul> <li><a href="../">Start here</a></li> </ul> <h2>Concepts</h2> <ul> <li><a href="../learn/what-is-joomiz">What Joomiz is</a></li> <li><a href="../learn/how-joomiz-works">How Joomiz works</a></li> </ul> <h2>Feature teams: start</h2> <ul> <li><a href="start-here">Feature teams: start here</a></li> <li><a href="quick-start" aria-current="page">Deploy your first service</a></li> </ul> <h2>Feature teams: write the file</h2> <ul> <li><a href="the-joomiz-yaml-file">The shape of a joomiz.yaml file</a></li> <li><a href="application">Describe your application</a></li> <li><a href="artifacts-and-tooling">Declare artifacts and tooling</a></li> <li><a href="environments">Define your environments</a></li> <li><a href="targets-and-deployments">Choose where your service runs</a></li> <li><a href="resources">Request and use resources</a></li> <li><a href="resource-types">The types you can request</a></li> <li><a href="references">Point one value at another</a></li> <li><a href="outputs-and-secrets">Use outputs and secrets</a></li> </ul> <h2>Feature teams: run a change</h2> <ul> <li><a href="validate">Check your file</a></li> <li><a href="plan">Preview a change</a></li> <li><a href="apply">Make a change</a></li> <li><a href="runs">Read your runs</a></li> <li><a href="drift">Find and fix drift</a></li> <li><a href="fix-errors">Fix an error</a></li> <li><a href="sign-in-and-access">Sign in and get access</a></li> <li><a href="editor-support">Set up your editor</a></li> <li><a href="faq">Questions and troubleshooting</a></li> </ul> <h2>Platform teams: start</h2> <ul> <li><a href="../platform-teams/start-here">Platform teams: start here</a></li> </ul> <h2>Platform teams: provisioners and the catalog</h2> <ul> <li><a href="../platform-teams/provisioners">What a provisioner is</a></li> <li><a href="../platform-teams/register-a-provisioner">Register a provisioner</a></li> <li><a href="../platform-teams/build-a-provisioner">Build a provisioner with the starter</a></li> <li><a href="../platform-teams/async-operations">Support slow work in a provisioner</a></li> <li><a href="../platform-teams/provisioner-network-policy">Allow the address of your provisioner</a></li> <li><a href="../platform-teams/real-provisioners">The provisioners for Azure DevOps and Cloud Foundry</a></li> <li><a href="../platform-teams/the-catalog">Own the catalog of types</a></li> </ul> <h2>Platform teams: operate</h2> <ul> <li><a href="../platform-teams/dashboard">Use the Platform dashboard</a></li> <li><a href="../platform-teams/release-a-stuck-lock">Release a stuck apply lock</a></li> <li><a href="../platform-teams/investigate-a-failed-run">Investigate a failed run</a></li> <li><a href="../platform-teams/audit-trail">Read and manage the audit trail</a></li> <li><a href="../platform-teams/health-and-telemetry">Check health and follow a run</a></li> </ul> <h2>Platform teams: deploy</h2> <ul> <li><a href="../platform-teams/deploy-the-control-plane">Deploy the control plane</a></li> <li><a href="../platform-teams/deploy-the-dashboard">Deploy the dashboard</a></li> <li><a href="../platform-teams/identity-provider">Connect an identity provider</a></li> </ul> <h2>Reference</h2> <ul> <li><a href="../reference/cli">CLI reference</a></li> <li><a href="../reference/control-plane-api">Control plane API reference</a></li> <li><a href="../reference/joomiz-yaml-schema">The joomiz.yaml schema</a></li> <li><a href="../reference/provisioner-api">Provisioner API reference</a></li> <li><a href="../reference/settings">Settings reference</a></li> <li><a href="../reference/results-and-errors">Run results, refusal reasons and exit codes</a></li> </ul> <h2>Examples</h2> <ul> <li><a href="../examples/quick-start">quick-start</a></li> <li><a href="../examples/quick-start-with-database">quick-start-with-database</a></li> <li><a href="../examples/references">references</a></li> <li><a href="../examples/partner-api">partner-api</a></li> <li><a href="../examples/container-service">container-service</a></li> <li><a href="../examples/order-service">order-service</a></li> <li><a href="../examples/billing-service">billing-service</a></li> </ul> </div> </nav> <main id="main"> <article data-variant="prose"> <h1 id="deploy-your-first-service">Deploy your first service</h1> <aside aria-label="On this page"> <p><strong>On this page</strong></p> <ul> <li><a href="#goal">Goal</a></li> <li><a href="#before-you-start">Before you start</a></li> <li><a href="#steps">Steps</a></li> <li><a href="#create-the-file">Create the file</a></li> <li><a href="#register-the-application">Register the application</a></li> <li><a href="#check-the-file">Check the file</a></li> <li><a href="#preview-the-change">Preview the change</a></li> <li><a href="#apply-the-change">Apply the change</a></li> <li><a href="#read-the-result">Read the result</a></li> <li><a href="#add-a-database">Add a database</a></li> <li><a href="#check">Check</a></li> <li><a href="#troubleshooting">Troubleshooting</a></li> <li><a href="#next">Next</a></li> </ul> </aside> <h2 id="goal">Goal</h2> <p>For feature teams. In this guide you deploy a small Java service to a test environment. Then you add a database to it. You use the Joomiz CLI.</p> <p>You finish with a service that is registered, planned and applied.</p> <h2 id="before-you-start">Before you start</h2> <p>You need three things from your platform team:</p> <ul> <li>The address of the control plane.</li> <li>A way to sign in. This is a token, or the settings for <code>joomiz login</code>.</li> <li>The ID and the name of your team. The example uses <code>finance-team</code> and <code>Finance Team</code>. Use your own.</li> </ul> <p>You also need the Joomiz CLI.</p> <blockquote> <p>You use the Joomiz CLI to run these commands. There is no download for the CLI yet. Your platform team provides it.</p> </blockquote> <p>Tell the CLI where the control plane is. Replace the address with the address from your platform team.</p> <pre tabindex="0"><code>export JOOMIZ_SERVER_URL=https://joomiz.example.com
+</code></pre> <p>Then sign in. If your platform team gave you the settings for <code>joomiz login</code>, run <code>joomiz login</code>. The command <code>joomiz login --help</code> lists what it needs.</p> <p>If your platform team gave you a token, read it into your shell without showing it:</p> <pre tabindex="0"><code>read -rs JOOMIZ_TOKEN
+export JOOMIZ_TOKEN
+</code></pre> <p>Paste the token and press Enter. The token does not show on the screen or in your shell history. Do not write the token in <code>joomiz.yaml</code> or in another file of your project.</p> <p>The output in this guide comes from a practice platform. Your output differs in three ways:</p> <ul> <li>The address of the control plane is yours. This guide shows <code>https://joomiz.example.com</code>.</li> <li>The IDs and the times are yours.</li> <li>The messages of the provisioners use other words. The practice platform ends some lines with <code>Nothing real was changed — this is a stub.</code> A real platform does not print this text.</li> </ul> <h2 id="steps">Steps</h2> <h3 id="create-the-file">Create the file</h3> <p>Make a folder for the service. Run <code>joomiz init</code> inside it. The command writes a file named <code>joomiz.yaml</code>. It does not contact the control plane.</p> <pre tabindex="0"><code>mkdir quick-start-shop
+cd quick-start-shop
+joomiz init --name=quick-start-shop \
+  --description=&quot;A small shop service for the quick start.&quot; \
+  --repository=https://github.com/example/quick-start-shop \
+  --golden-path=java-web-application \
+  --owner-id=finance-team \
+  --owner-name=&quot;Finance Team&quot;
+</code></pre> <p>The <code>golden-path</code> is a supported way to build a service. Your platform team decides which names exist.</p> <p>You see:</p> <pre tabindex="0"><code>Wrote joomiz.yaml
+  id:           f86f491d-2073-42d1-8166-17ab5d0eb093
+  name:         quick-start-shop
+  description:  A small shop service for the quick start.
+  repository:   https://github.com/example/quick-start-shop
+  golden-path:  java-web-application
+  owner.id:     finance-team
+  owner.name:   Finance Team
+</code></pre> <p><code>init</code> generates an <code>id</code> for the application. Copy your <code>id</code> from the output.</p> <p>The file that <code>init</code> wrote holds the key <code>version</code> and the <code>application</code> block. Replace the whole file with the complete file below. In the new file, replace the value of <code>id</code> with your own <code>id</code>. If your team is not <code>finance-team</code>, also write your own team in <code>owner</code>.</p> <pre tabindex="0"><code>version: 1
+
+application:
+  id: f86f491d-2073-42d1-8166-17ab5d0eb093
+  name: quick-start-shop
+  description: A small shop service for the quick start.
+  repository: https://github.com/example/quick-start-shop
+  golden-path: java-web-application
+
+  owner:
+    id: finance-team
+    name: Finance Team
+
+# What your build produces.
+artifacts:
+  - id: shop-jar
+    type: jar
+    spec:
+      path: target/shop.jar
+
+environments:
+  test:
+    # Where the service runs.
+    targets:
+      - id: test-foundation
+        type: cloud-foundry-space
+        spec:
+          api-endpoint: https://api.cf.test.internal
+          org: example-org
+          space: quick-start-shop-test
+
+    # What runs there: the jar, on that target.
+    deployments:
+      - id: shop-test-deployment
+        type: cloud-foundry-app
+        artifact: shop-jar
+        target: test-foundation
+        spec:
+          instances: 1
+          memory: 1G
+          disk-quota: 1G
+          buildpack: java_buildpack
+</code></pre> <p>The file has these parts:</p> <ul> <li><code>version</code> says which shape of the file you use. <code>init</code> writes <code>version: 1</code>.</li> <li><code>application</code> says who owns the service.</li> <li><code>artifacts</code> says what your build produces. Here it is one <code>jar</code> named <code>shop-jar</code>.</li> <li><code>environments</code> says where the service runs. The environment <code>test</code> has a target and a deployment.</li> </ul> <p>A <strong>target</strong> is the place where a service runs, here a Cloud Foundry space. A <strong>deployment</strong> puts an artifact on a target. The <code>spec</code> of the target (<code>api-endpoint</code>, <code>org</code> and <code>space</code>) describes your own Cloud Foundry. Ask your platform team for the right values.</p> <h3 id="register-the-application">Register the application</h3> <p>Register the application once. Registration stores the identity of your application and its owner, and the lists <code>artifacts</code> and <code>tooling</code>.</p> <pre tabindex="0"><code>joomiz register
+</code></pre> <p>You see:</p> <pre tabindex="0"><code>Registered quick-start-shop with https://joomiz.example.com/applications
+  id:           f86f491d-2073-42d1-8166-17ab5d0eb093
+  name:         quick-start-shop
+  description:  A small shop service for the quick start.
+  repository:   https://github.com/example/quick-start-shop
+  golden-path:  java-web-application
+  owner.id:     finance-team
+  owner.name:   Finance Team
+  location:     /applications/f86f491d-2073-42d1-8166-17ab5d0eb093
+</code></pre> <h3 id="check-the-file">Check the file</h3> <p>Check the whole file. The command changes nothing.</p> <pre tabindex="0"><code>joomiz validate
+</code></pre> <p>You see:</p> <pre tabindex="0"><code>joomiz.yaml is valid (checked by https://joomiz.example.com/validate)
+  application:   no problems
+  tooling:       no problems
+  environments:  no problems in 1 environment (1 target, 1 deployment, 0 managed-resources, 0 consumed-resources)
+</code></pre> <p>If the report lists problems, each line names the part of the file with the problem. Fix the file and run the command again.</p> <h3 id="preview-the-change">Preview the change</h3> <p>Run <code>plan</code> to see what <code>apply</code> would do. A plan changes nothing.</p> <pre tabindex="0"><code>joomiz plan --environment test
+</code></pre> <p>You see:</p> <pre tabindex="0"><code>plan for joomiz.yaml in environment test (computed by https://joomiz.example.com/plan?environment=test)
+  target/cloud-foundry-space: succeeded — Planned 1 change for target/cloud-foundry-space.
+    test-foundation (created): succeeded — Would create 'test-foundation' (target/cloud-foundry-space) in environment 'test'. Nothing was changed.
+  deployment/cloud-foundry-app: succeeded — Planned 1 change for deployment/cloud-foundry-app.
+    shop-test-deployment (created): succeeded — Would create 'shop-test-deployment' (deployment/cloud-foundry-app) in environment 'test'. Nothing was changed.
+  2 resource types, 2 resources
+plan succeeded (revision 00420a5d-9800-44ca-b807-55b49683ce4d, plan efa320ac-a5ff-4f44-ab37-863c1f05f2b6)
+</code></pre> <p>Read the output from the top:</p> <ul> <li>Each block starts with a category and a type, for example <code>target/cloud-foundry-space</code>.</li> <li><code>(created)</code> means that the resource does not exist yet.</li> <li>A plan changes nothing. It only describes the change.</li> <li>The last line gives the <code>revision</code> of your file. A revision is one exact file that was submitted for an application, identified by a hash. <a href="../learn/how-joomiz-works#revision">How Joomiz works</a> explains it.</li> </ul> <h3 id="apply-the-change">Apply the change</h3> <p>Run <code>apply</code> with the same file. Do not edit the file between <code>plan</code> and <code>apply</code>.</p> <pre tabindex="0"><code>joomiz apply --environment test
+</code></pre> <p>You see:</p> <pre tabindex="0"><code>applied joomiz.yaml to environment test (via https://joomiz.example.com/apply?environment=test)
+  target/cloud-foundry-space: succeeded — Applied 1 change for target/cloud-foundry-space.
+    test-foundation (created): succeeded — Created 'test-foundation' (target/cloud-foundry-space) in environment 'test'. Nothing real was changed — this is a stub.
+  deployment/cloud-foundry-app: succeeded — Applied 1 change for deployment/cloud-foundry-app.
+    shop-test-deployment (created): succeeded — Created 'shop-test-deployment' (deployment/cloud-foundry-app) in environment 'test'. Nothing real was changed — this is a stub.
+  2 resource types, 2 resources
+apply succeeded (plan efa320ac-a5ff-4f44-ab37-863c1f05f2b6, apply 4253081c-9199-4b86-999a-a1785ff29956)
+</code></pre> <p>The last line says <code>apply succeeded</code>. The service is deployed in the environment <code>test</code>.</p> <h3 id="read-the-result">Read the result</h3> <p>Every plan and every apply is saved as a run. List your runs:</p> <pre tabindex="0"><code>joomiz runs
+</code></pre> <p>You see:</p> <pre tabindex="0"><code>ID                                    KIND   APPLICATION                  ENVIRONMENT  STATUS     STARTED
+9a0706f0-e71d-480b-b1e1-704016b85579  apply  quick-start-shop (f86f491d)  test         succeeded  2026-10-28T12:52:39.421Z
+77dcee0c-4394-41ff-b52a-0774c2b7f4a9  plan   quick-start-shop (f86f491d)  test         succeeded  2026-10-28T12:52:38.705Z
+</code></pre> <p>The <code>KIND</code> column shows the action of the run: <code>plan</code> or <code>apply</code>. The newest run is first.</p> <h3 id="add-a-database">Add a database</h3> <p>Add a PostgreSQL database. Replace the content of <code>joomiz.yaml</code> with the next file. Keep your own <code>id</code> in it.</p> <pre tabindex="0"><code>version: 1
+
+application:
+  id: f86f491d-2073-42d1-8166-17ab5d0eb093
+  name: quick-start-shop
+  description: A small shop service for the quick start.
+  repository: https://github.com/example/quick-start-shop
+  golden-path: java-web-application
+
+  owner:
+    id: finance-team
+    name: Finance Team
+
+# What your build produces.
+artifacts:
+  - id: shop-jar
+    type: jar
+    spec:
+      path: target/shop.jar
+
+environments:
+  test:
+    # Where the service runs.
+    targets:
+      - id: test-foundation
+        type: cloud-foundry-space
+        spec:
+          api-endpoint: https://api.cf.test.internal
+          org: example-org
+          space: quick-start-shop-test
+
+    # What runs there: the jar, on that target.
+    deployments:
+      - id: shop-test-deployment
+        type: cloud-foundry-app
+        artifact: shop-jar
+        target: test-foundation
+        spec:
+          instances: 1
+          memory: 1G
+          disk-quota: 1G
+          buildpack: java_buildpack
+          env:
+            # A reference, not a password. The value is known after the database exists.
+            DB_PASSWORD: &quot;${{managed-resources.shop-db.outputs.password}}&quot;
+
+    # A database that Joomiz creates and owns for this service.
+    managed-resources:
+      - id: shop-db
+        type: postgres
+        spec:
+          flavor: cf-plan-small
+          version: &quot;16&quot;
+          storage-gb: 20
+          multi-az: false
+</code></pre> <p>The file has two additions:</p> <ul> <li>A managed resource named <code>shop-db</code>, of type <code>postgres</code>. A <strong>managed resource</strong> is a resource that Joomiz creates and owns for your service.</li> <li>An <code>env</code> entry on the deployment. <code>DB_PASSWORD</code> is a reference: <code>${{managed-resources.shop-db.outputs.password}}</code>.</li> </ul> <p>The password is not in the file. The database reports its <code>password</code> as the address of a secret in a vault. A reference points at that output.</p> <p>Check the new file:</p> <pre tabindex="0"><code>joomiz validate
+</code></pre> <p>You see:</p> <pre tabindex="0"><code>joomiz.yaml is valid (checked by https://joomiz.example.com/validate)
+  application:   no problems
+  tooling:       no problems
+  environments:  no problems in 1 environment (1 target, 1 deployment, 1 managed-resource, 0 consumed-resources)
+</code></pre> <p>Preview the change:</p> <pre tabindex="0"><code>joomiz plan --environment test
+</code></pre> <p>You see:</p> <pre tabindex="0"><code>plan for joomiz.yaml in environment test (computed by https://joomiz.example.com/plan?environment=test)
+  managed-resource/postgres: succeeded — Planned 1 change for managed-resource/postgres.
+    shop-db (created): succeeded — Would create 'shop-db' (managed-resource/postgres) in environment 'test'. Nothing was changed.
+      outputs.password: https://vault.example.com/secrets/quick-start-shop-db-password
+  deployment/cloud-foundry-app: succeeded — Planned 1 change for deployment/cloud-foundry-app.
+    shop-test-deployment (updated): succeeded — Would update 'shop-test-deployment' (deployment/cloud-foundry-app) in environment 'test'. Nothing was changed. 1 spec value is not known until apply.
+      env.DB_PASSWORD: (known after apply)
+  2 resource types, 2 resources
+plan succeeded (revision 6620a87d-65de-4d75-b348-43793d9b4834, plan 791d8513-b464-4540-b559-f8d4c4fb6a4d)
+</code></pre> <p>Read the output:</p> <ul> <li>The database is planned before the deployment, because the deployment uses it.</li> <li>The deployment reads <code>(updated)</code>, because it exists from the first apply.</li> <li><code>outputs.password</code> is the address of a secret in a vault. It is not the password.</li> <li><code>env.DB_PASSWORD: (known after apply)</code> means that the value does not exist until the database exists.</li> </ul> <p>Apply the change:</p> <pre tabindex="0"><code>joomiz apply --environment test
+</code></pre> <p>You see:</p> <pre tabindex="0"><code>applied joomiz.yaml to environment test (via https://joomiz.example.com/apply?environment=test)
+  managed-resource/postgres: succeeded — Applied 1 change for managed-resource/postgres.
+    shop-db (created): succeeded — Created 'shop-db' (managed-resource/postgres) in environment 'test'. Nothing real was changed — this is a stub.
+      outputs.password: https://vault.example.com/secrets/quick-start-shop-db-password
+  deployment/cloud-foundry-app: succeeded — Applied 1 change for deployment/cloud-foundry-app.
+    shop-test-deployment (updated): succeeded — Updated 'shop-test-deployment' (deployment/cloud-foundry-app) in environment 'test'. Nothing real was changed — this is a stub.
+  2 resource types, 2 resources
+apply succeeded (plan 791d8513-b464-4540-b559-f8d4c4fb6a4d, apply 5970e5ee-841a-494a-bc6e-b8bf6d9fe992)
+</code></pre> <h2 id="check">Check</h2> <p>Run <code>plan</code> again with the same file. Nothing is left to change.</p> <pre tabindex="0"><code>joomiz plan --environment test
+</code></pre> <p>You see:</p> <pre tabindex="0"><code>plan for joomiz.yaml in environment test (computed by https://joomiz.example.com/plan?environment=test)
+  0 resource types, 0 resources
+plan succeeded (revision 6620a87d-65de-4d75-b348-43793d9b4834, plan 4d9b0bf1-6f31-4e0e-84f8-bdc7daba8a5f)
+</code></pre> <p>The plan lists no resources, because the applied state already matches the file. The <code>revision</code> is the same as in the plan before, because the file is the same.</p> <h2 id="troubleshooting">Troubleshooting</h2> <p>Every failed command prints a line that starts with <code>error:</code> and exits with a code other than <code>0</code>.</p> <div role="region" tabindex="0" aria-label="Troubleshooting, table"> <table> <thead> <tr> <th>Symptom</th> <th>Cause</th> <th>Fix</th> </tr> </thead> <tbody> <tr> <td><code>no credential is available</code></td> <td>The CLI has no token and no saved sign-in.</td> <td>Set <code>JOOMIZ_TOKEN</code>, or run <code>joomiz login</code>.</td> </tr> <tr> <td><code>HTTP 401</code> and <code>Unauthorized</code></td> <td>The token is not valid, or it has expired.</td> <td>Get a new token from your platform team.</td> </tr> <tr> <td><code>HTTP 409</code> and <code>Application already registered</code></td> <td>You registered this <code>id</code> before.</td> <td>Skip <code>register</code>. Go on with <code>validate</code>.</td> </tr> <tr> <td><code>HTTP 400</code> and <code>Invalid owner</code></td> <td>Your token cannot act for the <code>owner.id</code> in the file.</td> <td>Write the ID of your own team in <code>owner.id</code>.</td> </tr> <tr> <td><code>no artifact with id ... is declared</code></td> <td>A deployment names an artifact that the file does not declare.</td> <td>Make <code>artifact</code> in the deployment equal to an <code>id</code> in <code>artifacts</code>.</td> </tr> <tr> <td><code>this file declares no environment named ...</code></td> <td>The <code>--environment</code> value is not in the file.</td> <td>Use a name from <code>environments</code>, here <code>test</code>.</td> </tr> <tr> <td><code>No appliable plan</code> and <code>this file has never been planned</code></td> <td>You changed the file after <code>plan</code>, or you did not run <code>plan</code>.</td> <td>Run <code>plan</code> with the file you want to apply. Then run <code>apply</code> with the same file.</td> </tr> </tbody> </table> </div> <h2 id="next">Next</h2> <p>Learn the parts of your file in <a href="the-joomiz-yaml-file">The shape of a <code>joomiz.yaml</code> file</a>.</p> <nav aria-label="Guide pages" data-variant="pager"> <a rel="prev" href="start-here"> <small>Previous</small> <span><svg data-icon="chevron-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>Feature teams: start here</span> </a> <a rel="next" href="the-joomiz-yaml-file"> <small>Next</small> <span>The shape of a joomiz.yaml file<svg data-icon="chevron-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span> </a> </nav> </article> </main> </body> </html> 

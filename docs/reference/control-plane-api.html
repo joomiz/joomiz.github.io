@@ -1,0 +1,245 @@
+ <!doctype html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <title>Control plane API reference · Docs · Joomiz</title> <meta name="description" content="The calls of the control plane API: the paths, the roles, the query and body fields, the answers, the paging, the versioning and the problem details, with real calls and answers."> <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"> <link rel="stylesheet" href="../css/d73eb349a2.css"> <script src="../js/5e02298580.js" defer></script> </head> <body data-layout="sidebar"> <a href="#main">Skip to content</a> <header> <button type="button" data-variant="ghost" data-size="sm" popovertarget="menu" aria-label="Open the menu">Menu</button> <a href="../" data-variant="brand" aria-label="Joomiz Docs, home"> <img data-on="light" src="../assets/brand/wordmark-full.on-light.svg" alt="" width="120" height="32"> <img data-on="dark" src="../assets/brand/wordmark-full.on-dark.svg" alt="" width="120" height="32"> <span>Docs</span> </a> <span data-variant="badge" data-tone="info">BETA</span> <nav aria-label="Main" data-variant="bar"> <ul> <li><a href="https://www.joomiz.com/">Home</a></li> <li><a href="https://www.joomiz.com/use-cases/">Use cases</a></li> <li><a href="https://www.joomiz.com/faq">FAQ</a></li> <li><a href="../" aria-current="page">Docs</a></li> </ul> </nav> <button type="button" id="theme-toggle" data-variant="ghost" data-icon-only data-align="end" aria-label="Theme: system. Switch to light."> <span data-for="system"><svg data-icon="sun-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v2"/><path d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"/><path d="M16 12a4 4 0 0 0-4-4"/><path d="m19 5-1.256 1.256"/><path d="M20 12h2"/></svg></span> <span data-for="light" hidden><svg data-icon="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span> <span data-for="dark" hidden><svg data-icon="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg></span> </button> </header> <nav id="menu" popover aria-label="Section"> <div data-variant="menu"> <h2>Start</h2> <ul> <li><a href="../">Start here</a></li> </ul> <h2>Concepts</h2> <ul> <li><a href="../learn/what-is-joomiz">What Joomiz is</a></li> <li><a href="../learn/how-joomiz-works">How Joomiz works</a></li> </ul> <h2>Feature teams: start</h2> <ul> <li><a href="../feature-teams/start-here">Feature teams: start here</a></li> <li><a href="../feature-teams/quick-start">Deploy your first service</a></li> </ul> <h2>Feature teams: write the file</h2> <ul> <li><a href="../feature-teams/the-joomiz-yaml-file">The shape of a joomiz.yaml file</a></li> <li><a href="../feature-teams/application">Describe your application</a></li> <li><a href="../feature-teams/artifacts-and-tooling">Declare artifacts and tooling</a></li> <li><a href="../feature-teams/environments">Define your environments</a></li> <li><a href="../feature-teams/targets-and-deployments">Choose where your service runs</a></li> <li><a href="../feature-teams/resources">Request and use resources</a></li> <li><a href="../feature-teams/resource-types">The types you can request</a></li> <li><a href="../feature-teams/references">Point one value at another</a></li> <li><a href="../feature-teams/outputs-and-secrets">Use outputs and secrets</a></li> </ul> <h2>Feature teams: run a change</h2> <ul> <li><a href="../feature-teams/validate">Check your file</a></li> <li><a href="../feature-teams/plan">Preview a change</a></li> <li><a href="../feature-teams/apply">Make a change</a></li> <li><a href="../feature-teams/runs">Read your runs</a></li> <li><a href="../feature-teams/drift">Find and fix drift</a></li> <li><a href="../feature-teams/fix-errors">Fix an error</a></li> <li><a href="../feature-teams/sign-in-and-access">Sign in and get access</a></li> <li><a href="../feature-teams/editor-support">Set up your editor</a></li> <li><a href="../feature-teams/faq">Questions and troubleshooting</a></li> </ul> <h2>Platform teams: start</h2> <ul> <li><a href="../platform-teams/start-here">Platform teams: start here</a></li> </ul> <h2>Platform teams: provisioners and the catalog</h2> <ul> <li><a href="../platform-teams/provisioners">What a provisioner is</a></li> <li><a href="../platform-teams/register-a-provisioner">Register a provisioner</a></li> <li><a href="../platform-teams/build-a-provisioner">Build a provisioner with the starter</a></li> <li><a href="../platform-teams/async-operations">Support slow work in a provisioner</a></li> <li><a href="../platform-teams/provisioner-network-policy">Allow the address of your provisioner</a></li> <li><a href="../platform-teams/real-provisioners">The provisioners for Azure DevOps and Cloud Foundry</a></li> <li><a href="../platform-teams/the-catalog">Own the catalog of types</a></li> </ul> <h2>Platform teams: operate</h2> <ul> <li><a href="../platform-teams/dashboard">Use the Platform dashboard</a></li> <li><a href="../platform-teams/release-a-stuck-lock">Release a stuck apply lock</a></li> <li><a href="../platform-teams/investigate-a-failed-run">Investigate a failed run</a></li> <li><a href="../platform-teams/audit-trail">Read and manage the audit trail</a></li> <li><a href="../platform-teams/health-and-telemetry">Check health and follow a run</a></li> </ul> <h2>Platform teams: deploy</h2> <ul> <li><a href="../platform-teams/deploy-the-control-plane">Deploy the control plane</a></li> <li><a href="../platform-teams/deploy-the-dashboard">Deploy the dashboard</a></li> <li><a href="../platform-teams/identity-provider">Connect an identity provider</a></li> </ul> <h2>Reference</h2> <ul> <li><a href="cli">CLI reference</a></li> <li><a href="control-plane-api" aria-current="page">Control plane API reference</a></li> <li><a href="joomiz-yaml-schema">The joomiz.yaml schema</a></li> <li><a href="provisioner-api">Provisioner API reference</a></li> <li><a href="settings">Settings reference</a></li> <li><a href="results-and-errors">Run results, refusal reasons and exit codes</a></li> </ul> <h2>Examples</h2> <ul> <li><a href="../examples/quick-start">quick-start</a></li> <li><a href="../examples/quick-start-with-database">quick-start-with-database</a></li> <li><a href="../examples/references">references</a></li> <li><a href="../examples/partner-api">partner-api</a></li> <li><a href="../examples/container-service">container-service</a></li> <li><a href="../examples/order-service">order-service</a></li> <li><a href="../examples/billing-service">billing-service</a></li> </ul> </div> </nav> <main id="main"> <article data-variant="prose"> <h1 id="control-plane-api-reference">Control plane API reference</h1> <aside aria-label="On this page"> <p><strong>On this page</strong></p> <ul> <li><a href="#conventions">Conventions</a></li> <li><a href="#call-the-api-with-curl">Call the API with curl</a></li> <li><a href="#the-calls">The calls</a></li> <li><a href="#schema">Schema</a></li> <li><a href="#applications">Applications</a></li> <li><a href="#plan-and-apply">Plan and apply</a></li> <li><a href="#runs">Runs</a></li> <li><a href="#audit">Audit</a></li> <li><a href="#provisioners">Provisioners</a></li> <li><a href="#slow-operations">Slow operations</a></li> <li><a href="#errors">Errors</a></li> <li><a href="#see-also">See also</a></li> </ul> </aside> <p>For platform teams. This page lists the HTTP calls of the control plane: what each call does, which role it needs, what it takes and what it answers. The CLI and the Platform dashboard use these calls. You can use them with <code>curl</code>.</p> <p>The calls in the examples run against the address in the variable <code>JOOMIZ_SERVER_URL</code>. The outputs show <code>https://joomiz.example.com</code> in place of the real address, and example IDs. The control plane sends each JSON answer on one line, except the schema. Some examples have line breaks, so that you can read them.</p> <h2 id="conventions">Conventions</h2> <ul> <li><strong>Paths</strong> are plural nouns in kebab-case, for example <code>/applications</code>. A value in a path, such as an ID, is written <code>{id}</code>.</li> <li><strong>Query names</strong> are in snake_case, for example <code>page_size</code>.</li> <li><strong>JSON fields</strong> are in camelCase, for example <code>goldenPath</code>. A <code>joomiz.yaml</code> body is YAML, and its keys are in kebab-case.</li> <li><strong>Bodies in</strong> are YAML for <code>/validate</code>, <code>/applications</code>, <code>/plan</code> and <code>/apply</code>. The content type is <code>application/yaml</code>, <code>application/x-yaml</code> or <code>text/yaml</code>. Any other content type gets <code>415</code>. The other calls take JSON.</li> <li><strong>Versioning.</strong> The header <code>X-API-Version</code> names the version of the API. The only version is <code>1</code>. A request with no header uses version <code>1</code>. Any other value gets <code>400</code>. No path has a version in it.</li> <li><strong>Errors</strong> are problem details (RFC 9457) with the content type <code>application/problem+json</code>. <a href="#errors">Errors</a> lists them.</li> <li><strong>Paging.</strong> <code>/runs</code> and <code>/audit-events</code> take <code>cursor</code> and <code>page_size</code>. The page size is from 1 to 100, and the default is 50. When more items exist, the answer has a <code>nextCursor</code>. Send it as <code>cursor</code> to get the next page. <code>/applications</code> takes <code>page_number</code> and <code>page_size</code>. Its page size is from 1 to 100, and the default is 20.</li> <li><strong>Roles.</strong> Every call needs a token, except <code>GET /schema</code>. A call that needs the role <code>operator</code> is marked below. Every other call works with a role <code>owner:&lt;team&gt;</code> for the applications of that team. An operator can use them for every application.</li> </ul> <h2 id="call-the-api-with-curl">Call the API with curl</h2> <p>Read the token into a variable without showing it. Then give it to <code>curl</code> from the environment, so it is not on the command line:</p> <pre tabindex="0"><code>read -rs JOOMIZ_TOKEN
+export JOOMIZ_TOKEN
+</code></pre> <pre tabindex="0"><code>curl -s -w '\nHTTP %{http_code}\n' --variable '%JOOMIZ_TOKEN' --expand-header 'Authorization: Bearer {{JOOMIZ_TOKEN}}' &quot;$JOOMIZ_SERVER_URL/runs?page_size=1&quot;
+</code></pre> <p>This needs <code>curl</code> 8.3 or later. A call with no valid token gets <code>401</code> with the title <code>Unauthorized</code>.</p> <h2 id="the-calls">The calls</h2> <div role="region" tabindex="0" aria-label="The calls, table"> <table> <thead> <tr> <th>Call</th> <th>What it does</th> <th>Role</th> </tr> </thead> <tbody> <tr> <td><code>GET /schema</code></td> <td>Returns the JSON Schema of <code>joomiz.yaml</code>.</td> <td>None. It needs no token.</td> </tr> <tr> <td><code>POST /validate</code></td> <td>Checks a <code>joomiz.yaml</code>. It changes nothing.</td> <td>Owner of the application, or operator</td> </tr> <tr> <td><code>POST /applications</code></td> <td>Registers an application.</td> <td>Owner of the application, or operator</td> </tr> <tr> <td><code>GET /applications</code></td> <td>Lists the applications that you may see.</td> <td>Owner or operator</td> </tr> <tr> <td><code>GET /applications/{id}</code></td> <td>Returns one application.</td> <td>Owner of the application, or operator</td> </tr> <tr> <td><code>POST /plan?environment=&lt;name&gt;</code></td> <td>Plans a <code>joomiz.yaml</code> for one environment.</td> <td>Owner of the application, or operator</td> </tr> <tr> <td><code>POST /apply?environment=&lt;name&gt;</code></td> <td>Applies the plan of a <code>joomiz.yaml</code> to one environment.</td> <td>Owner of the application, or operator</td> </tr> <tr> <td><code>GET /applications/{id}/environments/{environment}/operations/{operationId}</code></td> <td>Returns the state of a slow operation of a provisioner.</td> <td>Owner of the application, or operator</td> </tr> <tr> <td><code>GET /runs</code></td> <td>Lists runs, newest first.</td> <td>Owner or operator</td> </tr> <tr> <td><code>GET /runs/{id}</code></td> <td>Returns one run with its resource types.</td> <td>Owner or operator</td> </tr> <tr> <td><code>GET /runs/{id}/events</code></td> <td>Returns the events of a run.</td> <td>Owner or operator</td> </tr> <tr> <td><code>PATCH /runs/{id}</code></td> <td>Releases the apply lock of a run.</td> <td>Operator</td> </tr> <tr> <td><code>GET /audit-events</code></td> <td>Lists audit events, newest first.</td> <td>Owner or operator</td> </tr> <tr> <td><code>GET /audit-events/{id}</code></td> <td>Returns one audit event.</td> <td>Owner or operator</td> </tr> <tr> <td><code>POST /audit-erasures</code></td> <td>Erases a user ID from the audit trail.</td> <td>Operator</td> </tr> <tr> <td><code>POST /provisioners</code></td> <td>Registers a provisioner.</td> <td>Operator</td> </tr> <tr> <td><code>GET /provisioners</code></td> <td>Lists the provisioners.</td> <td>Operator</td> </tr> <tr> <td><code>GET /provisioners/{id}</code></td> <td>Returns one provisioner.</td> <td>Operator</td> </tr> <tr> <td><code>PUT /provisioners/{id}</code></td> <td>Replaces a registration.</td> <td>Operator</td> </tr> <tr> <td><code>DELETE /provisioners/{id}</code></td> <td>Removes a registration.</td> <td>Operator</td> </tr> </tbody> </table> </div> <p>The body of a <code>POST /validate</code>, <code>POST /plan</code> and <code>POST /apply</code> names the application by its <code>application.id</code>. For <code>plan</code>, <code>apply</code> and <code>validate</code>, the application must be registered first. For an owner, a run or an audit event of another team is <code>404</code>. An application of another team is <code>403</code> with the title <code>Not your application</code>.</p> <h2 id="schema">Schema</h2> <p><code>GET /schema</code> returns the schema with the content type <code>application/schema+json</code>. The <code>type</code> values and the <code>spec</code> shapes come from the catalog of your control plane, every time you ask:</p> <pre tabindex="0"><code>curl -s &quot;$JOOMIZ_SERVER_URL/schema&quot;
+</code></pre> <pre tabindex="0"><code>{
+  &quot;$schema&quot; : &quot;http://json-schema.org/draft-07/schema#&quot;,
+  &quot;title&quot; : &quot;joomiz.yaml&quot;,
+  &quot;description&quot; : &quot;The Joomiz application manifest. The `type` values each list accepts, and the shape each type's `spec` must have, are composed from the platform's live catalogs every time this schema is fetched, so a newly registered type is available as soon as it is registered.&quot;,
+  &quot;type&quot; : &quot;object&quot;,
+  &quot;additionalProperties&quot; : false,
+  &quot;required&quot; : [ &quot;application&quot; ],
+  &quot;properties&quot; : {
+    &quot;version&quot; : {
+  ...
+</code></pre> <p>The output is cut after the first lines.</p> <h2 id="applications">Applications</h2> <p><code>POST /validate</code> takes a <code>joomiz.yaml</code> and answers <code>200</code> with a report. The field <code>valid</code> is <code>false</code> when any check fails, and <code>errors</code> lists problems of the whole file:</p> <pre tabindex="0"><code>curl -s -w '\nHTTP %{http_code}\n' --variable '%JOOMIZ_TOKEN' --expand-header 'Authorization: Bearer {{JOOMIZ_TOKEN}}' -X POST -H 'Content-Type: application/yaml' --data-binary @joomiz.yaml &quot;$JOOMIZ_SERVER_URL/validate&quot;
+</code></pre> <pre tabindex="0"><code>{&quot;applicationId&quot;:&quot;95791280-e2ce-4f92-af03-e04f36a84969&quot;,&quot;errors&quot;:[],&quot;application&quot;:{&quot;errors&quot;:[],&quot;valid&quot;:true},&quot;tooling&quot;:{&quot;errors&quot;:[],&quot;valid&quot;:true},&quot;environments&quot;:[{&quot;name&quot;:&quot;test&quot;,&quot;errors&quot;:[],&quot;targets&quot;:[{&quot;id&quot;:&quot;test-foundation&quot;,&quot;type&quot;:&quot;cloud-foundry-space&quot;,&quot;errors&quot;:[],&quot;valid&quot;:true}],&quot;deployments&quot;:[{&quot;id&quot;:&quot;shop-test-deployment&quot;,&quot;type&quot;:&quot;cloud-foundry-app&quot;,&quot;artifact&quot;:&quot;shop-jar&quot;,&quot;target&quot;:&quot;test-foundation&quot;,&quot;errors&quot;:[],&quot;valid&quot;:true}],&quot;managedResources&quot;:[],&quot;consumedResources&quot;:[],&quot;valid&quot;:true}],&quot;valid&quot;:true}
+HTTP 200
+</code></pre> <p>This is the answer for a file with a key that does not exist:</p> <pre tabindex="0"><code>{&quot;applicationId&quot;:&quot;95791280-e2ce-4f92-af03-e04f36a84969&quot;,&quot;errors&quot;:[&quot;application: unknown key \&quot;colour\&quot;&quot;],&quot;application&quot;:{&quot;errors&quot;:[],&quot;valid&quot;:true},&quot;tooling&quot;:{&quot;errors&quot;:[],&quot;valid&quot;:true},&quot;environments&quot;:[{&quot;name&quot;:&quot;test&quot;,&quot;errors&quot;:[],&quot;targets&quot;:[{&quot;id&quot;:&quot;test-foundation&quot;,&quot;type&quot;:&quot;cloud-foundry-space&quot;,&quot;errors&quot;:[],&quot;valid&quot;:true}],&quot;deployments&quot;:[{&quot;id&quot;:&quot;shop-test-deployment&quot;,&quot;type&quot;:&quot;cloud-foundry-app&quot;,&quot;artifact&quot;:&quot;shop-jar&quot;,&quot;target&quot;:&quot;test-foundation&quot;,&quot;errors&quot;:[],&quot;valid&quot;:true}],&quot;managedResources&quot;:[],&quot;consumedResources&quot;:[],&quot;valid&quot;:true}],&quot;valid&quot;:false}
+HTTP 200
+</code></pre> <p><code>POST /applications</code> stores an application. The answer is <code>201</code>, with the header <code>Location: /applications/{id}</code>. The body names the application:</p> <pre tabindex="0"><code>{
+  &quot;id&quot;: &quot;95791280-e2ce-4f92-af03-e04f36a84969&quot;,
+  &quot;name&quot;: &quot;hello-service&quot;,
+  &quot;description&quot;: &quot;A small shop service for the quick start.&quot;,
+  &quot;repository&quot;: &quot;https://github.com/example/hello-service&quot;,
+  &quot;goldenPath&quot;: &quot;java-web-application&quot;,
+  &quot;owner&quot;: {
+    &quot;id&quot;: &quot;finance-team&quot;,
+    &quot;name&quot;: &quot;Finance Team&quot;
+  },
+  &quot;tooling&quot;: [],
+  &quot;artifacts&quot;: [
+    {
+      &quot;id&quot;: &quot;shop-jar&quot;,
+      &quot;type&quot;: &quot;jar&quot;,
+      &quot;spec&quot;: {
+        &quot;path&quot;: &quot;target/shop.jar&quot;
+      }
+    }
+  ]
+}
+HTTP 201
+</code></pre> <p>A second registration of the same application ID answers <code>409</code> with the title <code>Application already registered</code>. A file whose <code>application.owner.id</code> is not the owner of your role answers <code>400</code> with the title <code>Invalid owner</code>.</p> <p><code>GET /applications</code> takes <code>owner_id</code>, <code>page_number</code> and <code>page_size</code>. It answers a page. An owner who asks for the <code>owner_id</code> of another team gets an empty page:</p> <pre tabindex="0"><code>curl -s -w '\nHTTP %{http_code}\n' --variable '%JOOMIZ_TOKEN' --expand-header 'Authorization: Bearer {{JOOMIZ_TOKEN}}' &quot;$JOOMIZ_SERVER_URL/applications?page_size=2&quot;
+</code></pre> <pre tabindex="0"><code>{
+  &quot;items&quot;: [
+    {
+      &quot;id&quot;: &quot;4569ce39-2dcb-4431-ae13-083b06393362&quot;,
+      &quot;name&quot;: &quot;orders-database&quot;,
+      &quot;owner&quot;: {
+        &quot;id&quot;: &quot;finance-team&quot;,
+        &quot;name&quot;: &quot;Finance Team&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;95791280-e2ce-4f92-af03-e04f36a84969&quot;,
+      &quot;name&quot;: &quot;hello-service&quot;,
+      &quot;owner&quot;: {
+        &quot;id&quot;: &quot;finance-team&quot;,
+        &quot;name&quot;: &quot;Finance Team&quot;
+      }
+    }
+  ],
+  &quot;pageNumber&quot;: 1,
+  &quot;pageSize&quot;: 2,
+  &quot;totalItems&quot;: 4,
+  &quot;totalPages&quot;: 2
+}
+HTTP 200
+</code></pre> <p><code>GET /applications/{id}</code> answers the same fields as the registration.</p> <h2 id="plan-and-apply">Plan and apply</h2> <p><code>POST /plan</code> and <code>POST /apply</code> take the <code>joomiz.yaml</code> as the body and the name of the environment in the query <code>environment</code>. Without it the answer is <code>400</code>. A file that cannot be planned gets <code>200</code> with a report like the one of <code>/validate</code>, and <code>valid</code> is <code>false</code>.</p> <p>A file that can be planned gets a stream of JSON lines, one JSON object on each line, with the content type <code>application/x-ndjson</code>. The header <code>X-Joomiz-Run-Id</code> holds the ID of the run. The stream has one <code>group</code> line for each kind and type of resource, and a last <code>summary</code> line.</p> <pre tabindex="0"><code>{
+  &quot;kind&quot;: &quot;deployment&quot;,
+  &quot;resourceType&quot;: &quot;cloud-foundry-app&quot;,
+  &quot;outcome&quot;: &quot;succeeded&quot;,
+  &quot;description&quot;: &quot;Planned 1 change for deployment/cloud-foundry-app.&quot;,
+  &quot;results&quot;: [
+    {
+      &quot;id&quot;: &quot;shop-test-deployment&quot;,
+      &quot;action&quot;: &quot;created&quot;,
+      &quot;outcome&quot;: &quot;succeeded&quot;,
+      &quot;description&quot;: &quot;Would create 'shop-test-deployment' (deployment/cloud-foundry-app) in environment 'test'. Nothing was changed.&quot;,
+      &quot;outputs&quot;: null,
+      &quot;unresolvedFields&quot;: []
+    }
+  ],
+  &quot;operationId&quot;: null,
+  &quot;type&quot;: &quot;group&quot;
+}
+</code></pre> <p>The <code>summary</code> line of a plan holds the revision, the plan, the status and the ID of the run:</p> <pre tabindex="0"><code>{&quot;revisionId&quot;:&quot;e3a03634-d1f6-4ffe-af87-af9020921e4f&quot;,&quot;revisionPlanId&quot;:&quot;e1d8689a-fb66-46ac-9d8a-e4563a5ad6cd&quot;,&quot;status&quot;:&quot;succeeded&quot;,&quot;type&quot;:&quot;summary&quot;,&quot;runId&quot;:&quot;fa656ad8-3a76-4c99-8b34-a8d72f4ca697&quot;,&quot;driftComplete&quot;:true}
+HTTP 200
+</code></pre> <p>The <code>summary</code> line of an apply has the plan, the apply and the status:</p> <pre tabindex="0"><code>{&quot;revisionPlanId&quot;:&quot;e1d8689a-fb66-46ac-9d8a-e4563a5ad6cd&quot;,&quot;revisionPlanApplicationId&quot;:&quot;36eafecc-1eaf-44dc-8944-631557bedd1e&quot;,&quot;status&quot;:&quot;succeeded&quot;,&quot;type&quot;:&quot;summary&quot;,&quot;runId&quot;:&quot;e539f576-34da-43df-9fdc-05ed59464b23&quot;}
+HTTP 200
+</code></pre> <p>A <code>group</code> line of a slow operation holds the field <code>operationId</code>. An apply with no plan answers <code>409</code>. The control plane also refuses a plan that is too old:</p> <pre tabindex="0"><code>{&quot;detail&quot;:&quot;this file has never been planned; run plan for this environment before applying it&quot;,&quot;status&quot;:409,&quot;title&quot;:&quot;No appliable plan&quot;}
+HTTP 409
+</code></pre> <pre tabindex="0"><code>{&quot;detail&quot;:&quot;the applied state of this application and environment changed after this plan was made; plan again, review the result and apply it&quot;,&quot;status&quot;:409,&quot;title&quot;:&quot;Stale plan&quot;,&quot;type&quot;:&quot;tag:joomiz.com,2026:problems/stale-plan&quot;}
+HTTP 409
+</code></pre> <p>The <code>409</code> of a second apply holds the field <code>holder</code>. <a href="../platform-teams/release-a-stuck-lock">Release a stuck apply lock</a> shows it.</p> <h2 id="runs">Runs</h2> <p><code>GET /runs</code> takes the filters <code>application_id</code>, <code>environment</code>, <code>kind</code> (<code>plan</code> or <code>apply</code>), <code>status</code>, <code>started_after</code> and <code>started_before</code>, and the paging fields. The times are ISO 8601. The answer is the first item here, and the other items have the same fields:</p> <pre tabindex="0"><code>{
+  &quot;items&quot;: [
+    {
+      &quot;id&quot;: &quot;e539f576-34da-43df-9fdc-05ed59464b23&quot;,
+      &quot;kind&quot;: &quot;apply&quot;,
+      &quot;applicationId&quot;: &quot;95791280-e2ce-4f92-af03-e04f36a84969&quot;,
+      &quot;applicationName&quot;: &quot;hello-service&quot;,
+      &quot;environment&quot;: &quot;test&quot;,
+      &quot;caller&quot;: &quot;owner:finance-team&quot;,
+      &quot;status&quot;: &quot;succeeded&quot;,
+      &quot;refusalReason&quot;: null,
+      &quot;revisionId&quot;: &quot;e3a03634-d1f6-4ffe-af87-af9020921e4f&quot;,
+      &quot;revisionPlanId&quot;: &quot;e1d8689a-fb66-46ac-9d8a-e4563a5ad6cd&quot;,
+      &quot;revisionPlanApplicationId&quot;: &quot;36eafecc-1eaf-44dc-8944-631557bedd1e&quot;,
+      &quot;traceId&quot;: null,
+      &quot;startedAt&quot;: &quot;2026-10-28T19:25:42.769Z&quot;,
+      &quot;finishedAt&quot;: &quot;2026-10-28T19:25:42.785Z&quot;,
+      &quot;lastEventAt&quot;: &quot;2026-10-28T19:25:42.785Z&quot;,
+      &quot;lastSequence&quot;: 8,
+      &quot;incomplete&quot;: false
+    }
+  ],
+  &quot;nextCursor&quot;: null
+}
+HTTP 200
+</code></pre> <p>The field <code>caller</code> holds the role that started the run. This documentation says <em>acted as</em>. The field <code>traceId</code> is <code>null</code> when the control plane sends no traces. The <code>status</code> is one of <code>running</code>, <code>accepted</code>, <code>succeeded</code>, <code>failed</code>, <code>partially_applied</code>, <code>refused</code> and <code>abandoned</code>. <a href="results-and-errors">Run results, refusal reasons and exit codes</a> explains them.</p> <p><code>GET /runs/{id}</code> answers the run, its resource types in <code>groups</code>, and, for an abandoned run, the field <code>abandonedBy</code> with <code>operator</code> or <code>system</code>:</p> <pre tabindex="0"><code>{
+  &quot;run&quot;: {
+    &quot;id&quot;: &quot;e539f576-34da-43df-9fdc-05ed59464b23&quot;,
+    &quot;kind&quot;: &quot;apply&quot;,
+    &quot;applicationId&quot;: &quot;95791280-e2ce-4f92-af03-e04f36a84969&quot;,
+    &quot;applicationName&quot;: &quot;hello-service&quot;,
+    &quot;environment&quot;: &quot;test&quot;,
+    &quot;caller&quot;: &quot;owner:finance-team&quot;,
+    &quot;status&quot;: &quot;succeeded&quot;,
+    &quot;refusalReason&quot;: null,
+    &quot;revisionId&quot;: &quot;e3a03634-d1f6-4ffe-af87-af9020921e4f&quot;,
+    &quot;revisionPlanId&quot;: &quot;e1d8689a-fb66-46ac-9d8a-e4563a5ad6cd&quot;,
+    &quot;revisionPlanApplicationId&quot;: &quot;36eafecc-1eaf-44dc-8944-631557bedd1e&quot;,
+    &quot;traceId&quot;: null,
+    &quot;startedAt&quot;: &quot;2026-10-28T19:25:42.769Z&quot;,
+    &quot;finishedAt&quot;: &quot;2026-10-28T19:25:42.785Z&quot;,
+    &quot;lastEventAt&quot;: &quot;2026-10-28T19:25:42.785Z&quot;,
+    &quot;lastSequence&quot;: 8,
+    &quot;incomplete&quot;: false
+  },
+  &quot;groups&quot;: [
+    {
+      &quot;kind&quot;: &quot;target&quot;,
+      &quot;type&quot;: &quot;cloud-foundry-space&quot;,
+      &quot;state&quot;: &quot;succeeded&quot;,
+      &quot;durationMillis&quot;: 6,
+      &quot;resolvedAfterMillis&quot;: null,
+      &quot;operationId&quot;: null,
+      &quot;counts&quot;: {
+        &quot;created&quot;: 1,
+        &quot;updated&quot;: 0,
+        &quot;removed&quot;: 0
+      }
+    },
+    &quot;...&quot;
+  ]
+}
+HTTP 200
+</code></pre> <p><code>GET /runs/{id}/events</code> takes <code>after_sequence</code> (0 or more) and <code>page_size</code> (1 to 100, default 50). It answers the events with a sequence number above the one that you give. The event <code>run_abandoned</code> also has the field <code>actor</code>, with <code>operator</code> or <code>system</code>. The CLI and the dashboard use this call to follow a run:</p> <pre tabindex="0"><code>{
+  &quot;runId&quot;: &quot;e539f576-34da-43df-9fdc-05ed59464b23&quot;,
+  &quot;status&quot;: &quot;succeeded&quot;,
+  &quot;events&quot;: [
+    {
+      &quot;sequence&quot;: 7,
+      &quot;at&quot;: &quot;2026-10-28T19:25:42.784Z&quot;,
+      &quot;type&quot;: &quot;group_finished&quot;,
+      &quot;groupKind&quot;: &quot;deployment&quot;,
+      &quot;groupType&quot;: &quot;cloud-foundry-app&quot;,
+      &quot;outcome&quot;: &quot;succeeded&quot;,
+      &quot;status&quot;: null,
+      &quot;durationMillis&quot;: 5,
+      &quot;operationId&quot;: null,
+      &quot;counts&quot;: {
+        &quot;created&quot;: 1,
+        &quot;updated&quot;: 0,
+        &quot;removed&quot;: 0
+      }
+    },
+    {
+      &quot;sequence&quot;: 8,
+      &quot;at&quot;: &quot;2026-10-28T19:25:42.785Z&quot;,
+      &quot;type&quot;: &quot;run_finished&quot;,
+      &quot;groupKind&quot;: null,
+      &quot;groupType&quot;: null,
+      &quot;outcome&quot;: null,
+      &quot;status&quot;: &quot;succeeded&quot;,
+      &quot;durationMillis&quot;: null,
+      &quot;operationId&quot;: null,
+      &quot;counts&quot;: null
+    }
+  ]
+}
+HTTP 200
+</code></pre> <p><code>PATCH /runs/{id}</code> takes the body <code>{&quot;status&quot;:&quot;abandoned&quot;}</code> and nothing else. Only an operator may use it, and only for a run with the status <code>running</code> or <code>accepted</code>. It does not stop work that is already running. The answer is the run:</p> <pre tabindex="0"><code>{
+  &quot;id&quot;: &quot;63d8876f-f99a-41fc-9947-513aa0f8b039&quot;,
+  &quot;kind&quot;: &quot;apply&quot;,
+  &quot;applicationId&quot;: &quot;4569ce39-2dcb-4431-ae13-083b06393362&quot;,
+  &quot;applicationName&quot;: &quot;orders-database&quot;,
+  &quot;environment&quot;: &quot;test&quot;,
+  &quot;caller&quot;: &quot;owner:finance-team&quot;,
+  &quot;status&quot;: &quot;abandoned&quot;,
+  &quot;refusalReason&quot;: null,
+  &quot;revisionId&quot;: &quot;0dd26ab7-ede7-44de-b84a-825e3a31ebd9&quot;,
+  &quot;revisionPlanId&quot;: &quot;78394874-5d29-41a4-abc1-4d1c43ce8bbf&quot;,
+  &quot;revisionPlanApplicationId&quot;: &quot;4a36eb2c-2ec5-4cd2-8cfe-283a32bc4b19&quot;,
+  &quot;traceId&quot;: null,
+  &quot;startedAt&quot;: &quot;2026-10-28T19:27:09.971Z&quot;,
+  &quot;finishedAt&quot;: &quot;2026-10-28T19:27:10.684Z&quot;,
+  &quot;lastEventAt&quot;: &quot;2026-10-28T19:27:10.684Z&quot;,
+  &quot;lastSequence&quot;: 6,
+  &quot;incomplete&quot;: false
+}
+HTTP 200
+</code></pre> <h2 id="audit">Audit</h2> <p><code>GET /audit-events</code> takes <code>application_id</code>, <code>run_id</code>, <code>action</code>, <code>outcome</code>, <code>from</code>, <code>to</code> and the paging fields. The filter <code>actor_subject</code> is for operators. <code>GET /audit-events/{id}</code> answers one event. <a href="../platform-teams/audit-trail">Read and manage the audit trail</a> explains the fields:</p> <pre tabindex="0"><code>{
+  &quot;items&quot;: [
+    {
+      &quot;id&quot;: &quot;04dd5179-da81-4457-ad99-608baa6f59fe&quot;,
+      &quot;occurredAt&quot;: &quot;2026-10-28T19:25:42.770Z&quot;,
+      &quot;actorKind&quot;: &quot;person&quot;,
+      &quot;actorSubject&quot;: &quot;e2b84d17-6c90-4a35-9f1e-0d3a58b7c641&quot;,
+      &quot;authority&quot;: &quot;owner:finance-team&quot;,
+      &quot;action&quot;: &quot;apply.requested&quot;,
+      &quot;outcome&quot;: &quot;performed&quot;,
+      &quot;targetType&quot;: &quot;application&quot;,
+      &quot;targetId&quot;: &quot;95791280-e2ce-4f92-af03-e04f36a84969&quot;,
+      &quot;applicationId&quot;: &quot;95791280-e2ce-4f92-af03-e04f36a84969&quot;,
+      &quot;environment&quot;: &quot;test&quot;,
+      &quot;runId&quot;: &quot;e539f576-34da-43df-9fdc-05ed59464b23&quot;
+    }
+  ],
+  &quot;nextCursor&quot;: &quot;MjAyNi0xMC0yOFQxOToyNTo0Mi43NzBafDA0ZGQ1MTc5LWRhODEtNDQ1Ny1hZDk5LTYwOGJhYTZmNTlmZQ&quot;
+}
+HTTP 200
+</code></pre> <p><code>POST /audit-erasures</code> takes the body <code>{&quot;subject&quot;: &quot;&lt;user ID&gt;&quot;}</code> and nothing else. It answers <code>201</code> with the ID of the erasure and the number of events that it changed. An operator cannot erase their own user ID.</p> <h2 id="provisioners">Provisioners</h2> <p>The calls on <code>/provisioners</code> are for operators. <a href="../platform-teams/register-a-provisioner">Register a provisioner</a> shows each call, the fields, and the errors.</p> <h2 id="slow-operations">Slow operations</h2> <p>This call answers the state of an operation that a provisioner accepted and still works on:</p> <pre tabindex="0"><code>GET /applications/{id}/environments/{environment}/operations/{operationId}
+</code></pre> <p>The fields are <code>operationId</code>, <code>applicationId</code>, <code>environment</code>, <code>kind</code>, <code>resourceType</code>, <code>dispatch</code>, <code>status</code>, <code>description</code>, <code>resources</code>, <code>acceptedAt</code>, <code>expiresAt</code> and <code>resolvedAt</code>. An ID that is not for this application and environment answers <code>404</code> with the title <code>Operation not found</code>:</p> <pre tabindex="0"><code>{&quot;detail&quot;:&quot;no operation '92806345-aa06-4574-bbfe-01ed91759045' for this application and environment&quot;,&quot;status&quot;:404,&quot;title&quot;:&quot;Operation not found&quot;}
+HTTP 404
+</code></pre> <h2 id="errors">Errors</h2> <p>A problem detail has the fields <code>status</code>, <code>title</code> and <code>detail</code>. A few add a field, for example <code>holder</code> or <code>violations</code>. The field <code>type</code> is missing, which means <code>about:blank</code>, except for the three types in the next table. The text of <code>detail</code> can change. Match on the status and the <code>type</code>, and not on the text.</p> <div role="region" tabindex="0" aria-label="Errors, table"> <table> <thead> <tr> <th><code>type</code></th> <th>Status</th> <th>When</th> </tr> </thead> <tbody> <tr> <td><code>tag:joomiz.com,2026:problems/apply-in-progress</code></td> <td><code>409</code></td> <td>Another apply of the same application and environment holds the lock. The field <code>holder</code> names its run.</td> </tr> <tr> <td><code>tag:joomiz.com,2026:problems/stale-plan</code></td> <td><code>409</code></td> <td>The environment changed after the plan. Plan again.</td> </tr> <tr> <td><code>tag:joomiz.com,2026:problems/audit-unavailable</code></td> <td><code>503</code></td> <td>The control plane could not write the audit event, so it did not do the action. Try again later.</td> </tr> </tbody> </table> </div> <p>The statuses and titles are:</p> <div role="region" tabindex="0" aria-label="Errors, table"> <table> <thead> <tr> <th>Status</th> <th>Titles</th> </tr> </thead> <tbody> <tr> <td><code>400</code></td> <td><code>Invalid application</code>, <code>Invalid owner</code>, <code>Invalid tooling</code>, <code>Invalid artifacts</code>, <code>Invalid golden path</code>, <code>Invalid joomiz.yaml</code>, <code>Unsupported joomiz.yaml version</code>, <code>Ambiguous owner role</code>, <code>Invalid page request</code>, <code>Invalid run query</code>, <code>Invalid run update</code>, <code>Invalid audit query</code>, <code>Invalid audit erasure</code>, <code>Invalid provisioner</code>, <code>Invalid operation id</code>, <code>Malformed request body</code>, <code>Bad Request</code></td> </tr> <tr> <td><code>401</code></td> <td><code>Unauthorized</code></td> </tr> <tr> <td><code>403</code></td> <td><code>Operator role required</code>, <code>Not your application</code>, <code>No Joomiz role</code>, <code>Audit erasure refused</code></td> </tr> <tr> <td><code>404</code></td> <td><code>Application not found</code>, <code>Run not found</code>, <code>Audit event not found</code>, <code>Provisioner not found</code>, <code>Operation not found</code>, <code>Not Found</code></td> </tr> <tr> <td><code>405</code></td> <td><code>Method Not Allowed</code></td> </tr> <tr> <td><code>409</code></td> <td><code>Application already registered</code>, <code>Provisioned type already claimed</code>, <code>Run cannot be abandoned</code>, <code>No appliable plan</code>, <code>Apply already in progress</code>, <code>Stale plan</code></td> </tr> <tr> <td><code>413</code></td> <td><code>Request body too large</code></td> </tr> <tr> <td><code>415</code></td> <td><code>Unsupported Media Type</code></td> </tr> <tr> <td><code>422</code></td> <td><code>No provisioner registered</code>, <code>Circular resource reference</code>, <code>Reserved deployment spec field</code></td> </tr> <tr> <td><code>500</code></td> <td><code>Internal server error</code></td> </tr> <tr> <td><code>503</code></td> <td><code>Run could not be recorded</code>, <code>Audit trail unavailable</code>, <code>Busy</code></td> </tr> </tbody> </table> </div> <p>These are real answers:</p> <pre tabindex="0"><code>{&quot;detail&quot;:&quot;You are not authorized to act on this application. It belongs to a different owner.&quot;,&quot;status&quot;:403,&quot;title&quot;:&quot;Not your application&quot;}
+HTTP 403
+</code></pre> <pre tabindex="0"><code>{&quot;detail&quot;:&quot;run query is invalid: status must be one of running, accepted, succeeded, failed, partially_applied, refused, abandoned&quot;,&quot;status&quot;:400,&quot;title&quot;:&quot;Invalid run query&quot;}
+HTTP 400
+</code></pre> <pre tabindex="0"><code>{&quot;detail&quot;:&quot;This operation requires the operator role. Releasing an apply lock is a platform operation, not an application-owner one.&quot;,&quot;status&quot;:403,&quot;title&quot;:&quot;Operator role required&quot;}
+HTTP 403
+</code></pre> <pre tabindex="0"><code>{&quot;detail&quot;:&quot;This path supports only these methods: GET.&quot;,&quot;status&quot;:405,&quot;title&quot;:&quot;Method Not Allowed&quot;}
+HTTP 405
+</code></pre> <p>The bad version of the API:</p> <pre tabindex="0"><code>{&quot;detail&quot;:&quot;The request is not valid.&quot;,&quot;status&quot;:400,&quot;title&quot;:&quot;Bad Request&quot;}
+HTTP 400
+</code></pre> <h2 id="see-also">See also</h2> <ul> <li><a href="cli">CLI reference</a> lists the commands that send these calls for you.</li> <li><a href="results-and-errors">Run results, refusal reasons and exit codes</a> explains the words in the answers.</li> <li><a href="settings">Settings reference</a> lists the settings of the control plane.</li> </ul> <nav aria-label="Guide pages" data-variant="pager"> <a rel="prev" href="cli"> <small>Previous</small> <span><svg data-icon="chevron-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>CLI reference</span> </a> <a rel="next" href="joomiz-yaml-schema"> <small>Next</small> <span>The joomiz.yaml schema<svg data-icon="chevron-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span> </a> </nav> </article> </main> </body> </html> 

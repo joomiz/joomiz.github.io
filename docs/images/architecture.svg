@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 500" width="1150" height="500" role="img" aria-labelledby="t d" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title id="t">Joomiz architecture</title>
+  <desc id="d">A developer's joomiz.yaml goes through the CLI to the control plane, which keeps rules, state and an audit trail. The control plane calls provisioners through an OpenAPI contract. One provisioner triggers several Azure DevOps pipelines and receives their results by callback.</desc>
+  <defs>
+    <filter id="card" x="-10%" y="-10%" width="120%" height="135%"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#0C0C31" flood-opacity="0.14"/></filter>
+    <marker id="end" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M2 1.5 L8 5 L2 8.5" fill="none" stroke="#0B3BC4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6"><circle cx="5" cy="5" r="4" fill="#0B3BC4"/></marker>
+  </defs>
+
+  <rect width="1150" height="500" rx="24" fill="#F4F6FA"/>
+
+  <!-- connectors -->
+  <g fill="none" stroke="#0B3BC4" stroke-width="2.5" stroke-linecap="round">
+    <path d="M117 152 V193" marker-end="url(#end)"/>
+    <path d="M202 241 H322" marker-start="url(#dot)" marker-end="url(#end)"/>
+    <path d="M572 241 H692" marker-start="url(#dot)" marker-end="url(#end)"/>
+    <path d="M893 340 C 945 340, 945 318, 988 318" marker-start="url(#end)" marker-end="url(#end)"/>
+    <path d="M893 358 C 945 358, 945 374, 988 374" marker-start="url(#end)" marker-end="url(#end)"/>
+    <path d="M893 376 C 945 376, 945 430, 988 430" marker-start="url(#end)" marker-end="url(#end)"/>
+  </g>
+  <g font-size="13" text-anchor="middle">
+    <rect x="227" y="205" width="70" height="26" rx="13" fill="#E8EEFC"/><text x="262" y="223" font-weight="600" fill="#0B3BC4">REST API</text>
+    <text x="262" y="262" fill="#5B6475">signed token</text>
+    <rect x="598" y="205" width="68" height="26" rx="13" fill="#E8EEFC"/><text x="632" y="223" font-weight="600" fill="#0B3BC4">OpenAPI</text>
+    <text x="632" y="262" fill="#5B6475">contract</text>
+    <text x="1054" y="482" fill="#5B6475">trigger and callback</text>
+  </g>
+
+  <!-- developer -->
+  <rect x="32" y="96" width="170" height="56" rx="28" fill="#FFFFFF" filter="url(#card)"/>
+  <g fill="none" stroke="#5B6475" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" transform="translate(46,112)"><path d="M7 3h7l4 4v14H7z" transform="scale(.8) translate(-2,-1)"/><path d="M14 3v4h4" transform="scale(.8) translate(-2,-1)"/></g>
+  <text x="80" y="121" font-size="15" font-weight="600" fill="#0C0C31" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">joomiz.yaml</text>
+  <text x="80" y="138" font-size="12.5" fill="#5B6475">in your project</text>
+
+  <rect x="32" y="193" width="170" height="96" rx="20" fill="#FFFFFF" filter="url(#card)"/>
+  <circle cx="68" cy="229" r="20" fill="#0B3BC4"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(56,217)"><path d="M4 7l5 5-5 5"/><path d="M12 18h8"/></g>
+  <text x="100" y="236" font-size="22" font-weight="700" fill="#0C0C31">CLI</text>
+  <text x="52" y="272" font-size="13" fill="#5B6475">validate · plan · apply</text>
+
+  <!-- control plane (the hero card) -->
+  <rect x="322" y="70" width="250" height="342" rx="24" fill="#0C0C31" filter="url(#card)"/>
+  <circle cx="362" cy="110" r="20" fill="#FFFFFF" fill-opacity="0.22"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(350,98)"><path d="M12 3l8 3v6c0 4.5-3.2 7.6-8 9-4.8-1.4-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></g>
+  <text x="394" y="117" font-size="22" font-weight="700" fill="#FFFFFF">Control plane</text>
+  <text x="346" y="152" font-size="13" fill="#C9D6F7">decides · remembers · enforces</text>
+  <g font-size="15" font-weight="600" fill="#FFFFFF">
+    <rect x="342" y="172" width="210" height="46" rx="14" fill="#FFFFFF" fill-opacity="0.16"/><text x="364" y="200">Rules and catalog</text>
+    <rect x="342" y="230" width="210" height="46" rx="14" fill="#FFFFFF" fill-opacity="0.16"/><text x="364" y="258">State</text>
+    <rect x="342" y="288" width="210" height="46" rx="14" fill="#FFFFFF" fill-opacity="0.16"/><text x="364" y="316">Audit trail</text>
+    <rect x="342" y="346" width="210" height="46" rx="14" fill="#FFFFFF" fill-opacity="0.16"/><text x="364" y="374">Owner-scoped access</text>
+  </g>
+
+  <!-- provisioners -->
+  <rect x="692" y="70" width="220" height="342" rx="24" fill="#FFFFFF" filter="url(#card)"/>
+  <circle cx="732" cy="110" r="20" fill="#0B3BC4"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(720,98)"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></g>
+  <text x="764" y="117" font-size="22" font-weight="700" fill="#0C0C31">Provisioners</text>
+  <g font-size="15" font-weight="600" fill="#0C0C31">
+    <rect x="712" y="148" width="180" height="40" rx="12" fill="#F4F6FA"/><text x="728" y="173">Cloud Foundry</text>
+    <rect x="712" y="196" width="180" height="40" rx="12" fill="#F4F6FA"/><text x="728" y="221">PostgreSQL</text>
+    <rect x="712" y="244" width="180" height="40" rx="12" fill="#F4F6FA"/><text x="728" y="269">Kong</text>
+  </g>
+  <text x="712" y="306" font-size="13" fill="#5B6475">and any you write</text>
+  <rect x="712" y="322" width="180" height="72" rx="16" fill="#E8EEFC" stroke="#0B3BC4" stroke-width="2"/>
+  <text x="728" y="352" font-size="15" font-weight="700" fill="#0B3BC4">Pipeline provisioner</text>
+  <text x="728" y="373" font-size="13" fill="#0B3BC4">triggers pipelines</text>
+
+  <!-- pipelines -->
+  <text x="1054" y="282" font-size="12" font-weight="700" letter-spacing="1.4" fill="#0B3BC4" text-anchor="middle">AZURE DEVOPS</text>
+  <g filter="url(#card)">
+    <rect x="990" y="296" width="128" height="44" rx="14" fill="#FFFFFF"/>
+    <rect x="990" y="352" width="128" height="44" rx="14" fill="#FFFFFF"/>
+    <rect x="990" y="408" width="128" height="44" rx="14" fill="#FFFFFF"/>
+  </g>
+  <g font-size="15" font-weight="600" fill="#0C0C31">
+    <circle cx="1010" cy="318" r="5" fill="#0B3BC4"/><text x="1024" y="323">Pipeline A</text>
+    <circle cx="1010" cy="374" r="5" fill="#0B3BC4"/><text x="1024" y="379">Pipeline B</text>
+    <circle cx="1010" cy="430" r="5" fill="#0B3BC4"/><text x="1024" y="435">Pipeline C</text>
+  </g>
+</svg>

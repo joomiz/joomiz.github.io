@@ -1,0 +1,67 @@
+version: 1
+
+application:
+  id: dc1aec1b-ca6e-44bd-b22b-fdae0adb9630
+  name: partner-api
+  description: A small service that partners call through a Kong gateway.
+  repository: https://github.com/example/partner-api
+  golden-path: java-web-application
+
+  owner:
+    id: finance-team
+    name: Finance Team
+
+artifacts:
+  - id: partner-api-jar
+    type: jar
+    spec:
+      path: target/partner-api.jar
+
+  # The OpenAPI document that describes the API.
+  - id: partner-api-oas
+    type: kong-oas
+    spec:
+      path: src/main/resources/openapi/partner-api.yaml
+
+environments:
+  test:
+    targets:
+      - id: test-foundation
+        type: cloud-foundry-space
+        spec:
+          api-endpoint: https://api.cf.test.internal
+          org: example-org
+          space: partner-api-test
+
+      - id: test-gateway
+        type: kong-gateway
+        spec:
+          control-plane-name: partner-apis-test
+
+    deployments:
+      - id: partner-api-test-deployment
+        type: cloud-foundry-app
+        artifact: partner-api-jar
+        target: test-foundation
+        spec:
+          instances: 1
+          memory: 1G
+          disk-quota: 1G
+          buildpack: java_buildpack
+
+      # The API itself, published on the gateway from the OpenAPI document.
+      - id: partner-api-test-gateway-api
+        type: kong-api
+        artifact: partner-api-oas
+        target: test-gateway
+        spec:
+          consumers:
+            - id: partner-portal
+              name: Partner Portal
+              roles:
+                - read
+                - write
+            - id: warehouse-scanner
+              name: Warehouse Scanner App
+              roles:
+                - read
